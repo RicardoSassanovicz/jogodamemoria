@@ -17,7 +17,7 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
 public class FrutasButtons extends CCLayer implements ButtonDelegate{
 
     private Button morangoButton, bananaButton, laranjaButton, limaoButton, macaButton, peraButton, cerejaButton, kiwiButton, tomateButton, mangaButton;
-    private Button imagens[] = {morangoButton, bananaButton, laranjaButton, limaoButton, macaButton, peraButton, cerejaButton, kiwiButton, tomateButton, mangaButton};
+    private Button rec[] ,imagens[] = {morangoButton, bananaButton, laranjaButton, limaoButton, macaButton, peraButton, cerejaButton, kiwiButton, tomateButton, mangaButton};
 
     private TelaDoJogo delegate;
     private Button captButton;
@@ -26,12 +26,12 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
         return new FrutasButtons();
     }
 
-    public FrutasButtons(){
-        //seta o botao como clicavel
-        this.setIsTouchEnabled(true);
-        setImagens();
-        setDelegate();
-        setPosicao();
+    public Button[] FrutasButtons(){
+        rec = imagens;
+        return rec;
+        //setImagens();
+        //setDelegate();
+        //setPosicao();
         //exibeNaTela();
     }
 
@@ -66,8 +66,8 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
         this.imagens[5].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 285, screenHeight()- 550)));
         this.imagens[6].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 435, screenHeight()- 550)));
         this.imagens[7].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 585, screenHeight()- 550)));
-//       this.imagens[8].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 135, screenHeight()- 700)));
-//       this.imagens[9].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 285, screenHeight() - 700)));
+        this.imagens[8].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 135, screenHeight()- 700)));
+        this.imagens[9].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 285, screenHeight() - 700)));
 
 
     }
@@ -85,14 +85,16 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
 
     @Override
     public void buttonClicked(Button sender) {
-        this.captButton = sender;
+        //this.captButton = sender;
     }
 
     public Button[] getImagens() {
         return imagens;
     }
 
-    public void setImagens(Button[] imagens) {
+    public void setImagenns(Button[] imagens) {
         this.imagens = imagens;
     }
+
+
 }
