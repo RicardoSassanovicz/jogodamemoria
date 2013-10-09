@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets" >
+            <file
+                name="background.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/background.png" />
+            <file
+                name="highscore.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/highscore.png" />
+            <file
+                name="logo.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/logo.png" />
+            <file
+                name="opcoes.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/opcoes.png" />
+            <file
+                name="play.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/play.png" />
+            <file
+                name="UniSansBold_AlphaNum_50.fnt"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/UniSansBold_AlphaNum_50.fnt" />
+            <file
+                name="UniSansSemiBold_Numbers_240.fnt"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/UniSansSemiBold_Numbers_240.fnt" />
+            <file
+                name="UniSansSemiBold_Numbers_240_0.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/UniSansSemiBold_Numbers_240_0.png" />
+            <file
+                name="pergunta1.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/pergunta1.png" />
+            <file
+                name="Orange.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/Orange.png" />
+            <file
+                name="Lemon.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/Lemon.png" />
+            <file
+                name="Apple.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/Apple.png" />
+            <file
+                name="Tomato.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/Tomato.png" />
+            <file
+                name="Banana.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/Banana.png" />
+            <file
+                name="Strawberry.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/Strawberry.png" />
+            <file
+                name="Kiwi.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/Kiwi.png" />
+            <file
+                name="Mango.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/Mango.png" />
+            <file
+                name="Pear.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/Pear.png" />
+            <file
+                name="Cherry.png"
+                path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/assets/Cherry.png" />
+        </source>
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/build-types/debug/assets" />
+    </dataSet>
+
+</merger>

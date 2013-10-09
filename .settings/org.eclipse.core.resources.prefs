@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//src/br/com/jogodamemoria/MainActivity.java=UTF-8
+encoding//src/br/com/jogodamemoria/configuracoes/Assets.java=UTF-8
+encoding//src/br/com/jogodamemoria/configuracoes/ConfigDispositivo.java=UTF-8
+encoding//src/br/com/jogodamemoria/jogo/Objetos/Meteor.java=UTF-8
+encoding//src/br/com/jogodamemoria/jogo/Objetos/Player.java=UTF-8
+encoding//src/br/com/jogodamemoria/jogo/Objetos/Shoot.java=UTF-8
+encoding//src/br/com/jogodamemoria/jogo/controle/Button.java=UTF-8
+encoding//src/br/com/jogodamemoria/jogo/controle/GameButtons.java=UTF-8
+encoding//src/br/com/jogodamemoria/jogo/controle/MenuButtons.java=UTF-8
+encoding//src/br/com/jogodamemoria/jogo/scenes/TelaDeTitulo.java=UTF-8
+encoding//src/br/com/jogodamemoria/jogo/scenes/TelaDoJogo.java=UTF-8

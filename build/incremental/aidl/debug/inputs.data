@@ -1,0 +1,20 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1380486887000 886 e9d9265fbd97f0928a49010b658ea9c6e6f0cb57 /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/jogo/Objetos/Score.java
+1380904231000 761 5ff4f9a2d9ce37ba108b993a530197fcf7ef66ed /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/jogo/controle/GameButtons.java
+1380487024000 285 623a91543a7651a496283ab89191fff341d8deb0 /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/jogo/screens/ScreenBackground.java
+1381199956000 2529 31264d5f730d2f241700334a0418db319a9d45e9 /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/jogo/controle/MenuButtons.java
+1381199339000 587 7ad4eda90477353514c414912170fd1589862316 /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/configuracoes/Frutas.java
+1381319951000 3644 cf0e8fcd60bb799613607598c0775e19e1269c60 /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/jogo/controle/FrutasButtons.java
+1380486807000 225 cb5dfd4bfef2c11b798a5fe70bb98f8479d436fb /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/jogo/interfaces/ButtonDelegate.java
+1380487140000 1635 6464682bfbdf1f8bbc233739160561d5c378ae2f /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/MainActivity.java
+1381291098000 2611 f91a532da8dee787256aee6deb8681ef93a638be /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/jogo/scenes/TelaDoJogo.java
+1380929585000 1740 01796e3c490402f0853372c46d7b01ba227c92cf /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/jogo/scenes/TelaDeTitulo.java
+1381199418000 577 cfb3c09481b436989066dc20efeb96084f963600 /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/configuracoes/ConfigDispositivo.java
+1381199360000 170 f2d2e67c3b5f180ca7ad8aee976f92e0f9bf938b /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/configuracoes/Question.java
+1380888066000 113 65d93edbda9cf144b80963a3a1229ec9c921a0ec /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/configuracoes/Animais.java
+1380486705000 1658 c08b1d1beb66a2f695e69874524dd7fef23cdd8f /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/jogo/controle/Button.java
+1381199400000 362 f986109252f0654914242f989cf596b53ba85401 /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/configuracoes/Assets.java
+1381322356000 5810 842509db489d58cd9ac78e925a2e55aa9ff3adbf /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/jogo/controle/QuestionButtons.java
+1381321672000 1449 0d688248d9b3c7496a16dd5c86410ca687d78648 /Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/src/br/com/jogodamemoria/jogo/Objetos/Pecas.java
