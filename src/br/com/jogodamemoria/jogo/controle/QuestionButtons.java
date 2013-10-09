@@ -87,7 +87,7 @@ public class QuestionButtons extends CCLayer implements ButtonDelegate {
         for (int i = 0; i < imagens.length; i++) {
             this.imagens[i].setDelegate(this);
         }
-//
+//          teste
 //
 //
 //        this.i1.setDelegate(this);
