@@ -32,15 +32,11 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
 
     public void FrutasButtons(){
         setImagens();
-        setDelegate();
         setPosicao();
-        exibeNaTela();
-        for (int i = 0; i< imagens.length; i++){
-            rec[i] = imagens[i];
-        }
     }
 
     public void setImagens(){
+
         this.imagens[0] = new Button(Frutas.MORANGO);
         this.imagens[1] = new Button(Frutas.BANANA);
         this.imagens[2] = new Button(Frutas.LARANJA);
@@ -51,9 +47,6 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
         this.imagens[7] = new Button(Frutas.KIWI);
         this.imagens[8] = new Button(Frutas.TOMATE);
         this.imagens[9] = new Button(Frutas.MANGA);
-    }
-
-    public void setDelegate(){
 
         for (int i = 0; i < imagens.length; i++) {
             this.imagens[i].setDelegate(this);
@@ -74,15 +67,12 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
         this.imagens[8].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 135, screenHeight()- 700)));
         this.imagens[9].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 285, screenHeight() - 700)));
 
-
-    }
-    public void exibeNaTela(){
-
         for (int i = 0; i < imagens.length; i++) {
             addChild(imagens[i]);
         }
 
     }
+
 
     public void setDelegate(TelaDoJogo delegate) {
         this.delegate = delegate;
@@ -90,10 +80,7 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
 
     @Override
     public void buttonClicked(Button sender) {
-        //this.captButton = sender;
+
     }
 
-    public Button[] getRec() {
-        return rec;
-    }
 }

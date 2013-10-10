@@ -21,7 +21,7 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
  */
 public class QuestionButtons extends CCLayer implements ButtonDelegate{
 
-    private Button i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,botaPecasArrayFrutas[], teste;
+    private Button i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,botaPecasArrayFrutas[];
     private Button imagens[] = {i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16};
     private FrutasButtons frutasButtons;
 
@@ -34,9 +34,7 @@ public class QuestionButtons extends CCLayer implements ButtonDelegate{
     public QuestionButtons(){
         this.setIsTouchEnabled(true);
         setimagens();
-        setDelegates();
         setPosicoes();
-        exibeNaTela();
     }
 
     public void setDelegate(TelaDoJogo delegate) {
@@ -46,16 +44,12 @@ public class QuestionButtons extends CCLayer implements ButtonDelegate{
     public void setimagens() {
         for (int i = 0; i < imagens.length; i++) {
             this.imagens[i] = new Button(Question.PERGUNTA1);
-        }
-    }
-    public void setDelegates(){
-
-        for (int i = 0; i < imagens.length; i++) {
             this.imagens[i].setDelegate(this);
         }
     }
 
     public void setPosicoes(){
+
         this.imagens[0].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 135, screenHeight() - 400)));
         this.imagens[1].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 285, screenHeight()- 400)));
         this.imagens[2].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 435, screenHeight()- 400)));
@@ -72,9 +66,7 @@ public class QuestionButtons extends CCLayer implements ButtonDelegate{
         this.imagens[13].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 285, screenHeight()- 850)));
         this.imagens[14].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 435, screenHeight()- 850)));
         this.imagens[15].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 585, screenHeight()- 850)));
-    }
 
-    public void exibeNaTela(){
         for (int i = 0; i < imagens.length; i++) {
             addChild(imagens[i]);
         }
@@ -83,18 +75,6 @@ public class QuestionButtons extends CCLayer implements ButtonDelegate{
     @Override
     public void buttonClicked (Button sender) {
 
-//        teste = sender;
-//        frutasButtons.FrutasButtons();
-
-        sender.addChild(new Button(Frutas.CEREJA));
-
-//        for (int i=0; i < imagens.length;i++){
-//            if (teste.equals(imagens[i])){
-//                System.out.println("Clicou em: "+ imagens[i].getPosition());
-//                //teste = new Button(Frutas.CEREJA);
-//
-//                //imagens[i] = botaPecasArrayFrutas[i];
-//            }
-//        }
     }
+
 }

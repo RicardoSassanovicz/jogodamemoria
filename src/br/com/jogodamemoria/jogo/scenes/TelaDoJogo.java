@@ -50,7 +50,10 @@ public class TelaDoJogo extends CCLayer {
 
         QuestionButtons questionButtonsLayer = QuestionButtons.questionButtons();
         questionButtonsLayer.setDelegate(this);
+        questionButtonsLayer.atualizaTela();
+
         this.addChild(questionButtonsLayer);
+
 
         //novo camada para a pontuação
         this.scoreLayer = CCLayer.node();
