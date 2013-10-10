@@ -1,11 +1,14 @@
 package br.com.jogodamemoria.jogo.controle;
 
+import android.provider.MediaStore;
+
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.types.CGPoint;
 
+import br.com.jogodamemoria.configuracoes.Animais;
+import br.com.jogodamemoria.configuracoes.Assets;
 import br.com.jogodamemoria.configuracoes.Frutas;
 import br.com.jogodamemoria.configuracoes.Question;
-import br.com.jogodamemoria.jogo.Objetos.Pecas;
 import br.com.jogodamemoria.jogo.interfaces.ButtonDelegate;
 import br.com.jogodamemoria.jogo.scenes.TelaDoJogo;
 
@@ -16,20 +19,11 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
 /**
  * Created by ricardo on 05/10/13.
  */
-public class QuestionButtons extends CCLayer implements ButtonDelegate {
+public class QuestionButtons extends CCLayer implements ButtonDelegate{
 
-
-
-    //private Button p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16;
-    private Button i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16;
-    private Button botao2;
-    //private Button pergunta[] = {p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16};
+    private Button i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,botaPecasArrayFrutas[], teste;
     private Button imagens[] = {i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16};
-    private Pecas pecas;
-    private FrutasButtons frutasButtons = new FrutasButtons();
-    Button imagensFrutas[];
-    Button botaoPecas;
-    Button botaPecasArrayFrutas[];
+    private FrutasButtons frutasButtons;
 
     private TelaDoJogo delegate;
 
@@ -87,16 +81,20 @@ public class QuestionButtons extends CCLayer implements ButtonDelegate {
     }
 
     @Override
-    public void buttonClicked(Button sender) {
-        this.botao2 = sender;
+    public void buttonClicked (Button sender) {
 
-        botaPecasArrayFrutas = frutasButtons.FrutasButtons();
-        for (int i=0; i<imagens.length; i++){
-            if (imagens[i].equals(botao2)){
-                botao2 = botaPecasArrayFrutas[i];
-                addChild(botao2);
-            }
-        }
+//        teste = sender;
+//        frutasButtons.FrutasButtons();
+
+        sender.addChild(new Button(Frutas.CEREJA));
+
+//        for (int i=0; i < imagens.length;i++){
+//            if (teste.equals(imagens[i])){
+//                System.out.println("Clicou em: "+ imagens[i].getPosition());
+//                //teste = new Button(Frutas.CEREJA);
+//
+//                //imagens[i] = botaPecasArrayFrutas[i];
+//            }
+//        }
     }
-
 }

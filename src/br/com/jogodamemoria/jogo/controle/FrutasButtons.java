@@ -16,8 +16,12 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
  */
 public class FrutasButtons extends CCLayer implements ButtonDelegate{
 
-    private Button morangoButton, bananaButton, laranjaButton, limaoButton, macaButton, peraButton, cerejaButton, kiwiButton, tomateButton, mangaButton;
-    private Button rec[] ,imagens[] = {morangoButton, bananaButton, laranjaButton, limaoButton, macaButton, peraButton, cerejaButton, kiwiButton, tomateButton, mangaButton};
+    private Button morangoButton, bananaButton, laranjaButton, limaoButton, macaButton,
+                   peraButton, cerejaButton, kiwiButton, tomateButton, mangaButton;
+    private Button rec[] ,imagens[] = {morangoButton, bananaButton, laranjaButton, limaoButton,
+                                       macaButton, peraButton, cerejaButton, kiwiButton,
+                                       tomateButton, mangaButton};
+
 
     private TelaDoJogo delegate;
     private Button captButton;
@@ -26,13 +30,14 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
         return new FrutasButtons();
     }
 
-    public Button[] FrutasButtons(){
-        rec = imagens;
-        return rec;
-        //setImagens();
-        //setDelegate();
-        //setPosicao();
-        //exibeNaTela();
+    public void FrutasButtons(){
+        setImagens();
+        setDelegate();
+        setPosicao();
+        exibeNaTela();
+        for (int i = 0; i< imagens.length; i++){
+            rec[i] = imagens[i];
+        }
     }
 
     public void setImagens(){
@@ -88,13 +93,7 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
         //this.captButton = sender;
     }
 
-    public Button[] getImagens() {
-        return imagens;
+    public Button[] getRec() {
+        return rec;
     }
-
-    public void setImagenns(Button[] imagens) {
-        this.imagens = imagens;
-    }
-
-
 }

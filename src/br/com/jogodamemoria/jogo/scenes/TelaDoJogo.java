@@ -48,10 +48,6 @@ public class TelaDoJogo extends CCLayer {
         gameButtonsLayer.setDelegate(this);
         this.addChild(gameButtonsLayer);
 
-//      FrutasButtons frutasButtonsLayer = FrutasButtons.frutasButtons();
-//      frutasButtonsLayer.setDelegate(this);
-//      this.addChild(frutasButtonsLayer);
-
         QuestionButtons questionButtonsLayer = QuestionButtons.questionButtons();
         questionButtonsLayer.setDelegate(this);
         this.addChild(questionButtonsLayer);
@@ -75,5 +71,9 @@ public class TelaDoJogo extends CCLayer {
         //Adiciona a pontua����o
         this.score = new Score();
         this.scoreLayer.addChild(this.score);
+    }
+
+    public void trocaImagem(){
+
     }
 }
