@@ -11,14 +11,20 @@ import org.cocos2d.types.CGRect;
 import org.cocos2d.sound.SoundEngine;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.jogodamemoria.R;
 import br.com.jogodamemoria.configuracoes.Assets;
 import br.com.jogodamemoria.configuracoes.Frutas;
+import br.com.jogodamemoria.jogo.Engines.PecasEngine;
+import br.com.jogodamemoria.jogo.Objetos.Pecas;
 import br.com.jogodamemoria.jogo.Objetos.Score;
 import br.com.jogodamemoria.jogo.controle.Button;
 import br.com.jogodamemoria.jogo.controle.FrutasButtons;
 import br.com.jogodamemoria.jogo.controle.GameButtons;
 import br.com.jogodamemoria.jogo.controle.QuestionButtons;
+import br.com.jogodamemoria.jogo.interfaces.PecasEngineDelegate;
 import br.com.jogodamemoria.jogo.screens.ScreenBackground;
 
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.resolucaoDaTela;
@@ -30,11 +36,16 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
  */
 
 //TELA DO JOGO
-public class TelaDoJogo extends CCLayer {
+public class TelaDoJogo extends CCLayer implements PecasEngineDelegate{
 
     private ScreenBackground background;
     private CCLayer scoreLayer;
     private Score score;
+    private Pecas pecas;
+
+    private PecasEngine pecasEngine;
+    private CCLayer pecasLayer;
+    private List pecasArray;
 
     //ADICIONA O BACKGROUND A TELA DO JOGO
     private TelaDoJogo() {
@@ -50,9 +61,10 @@ public class TelaDoJogo extends CCLayer {
 
         QuestionButtons questionButtonsLayer = QuestionButtons.questionButtons();
         questionButtonsLayer.setDelegate(this);
-        questionButtonsLayer.atualizaTela();
-
         this.addChild(questionButtonsLayer);
+
+//        this.pecasLayer = CCLayer.node();
+//        this.addChild(this.pecasLayer);
 
 
         //novo camada para a pontuação
@@ -71,12 +83,31 @@ public class TelaDoJogo extends CCLayer {
     }
 
     private void addGameObjects() {
+//        this.pecasArray = new ArrayList();
+//        this.pecasEngine = new PecasEngine();
+
         //Adiciona a pontua����o
         this.score = new Score();
         this.scoreLayer.addChild(this.score);
     }
 
-    public void trocaImagem(){
 
+//    private void startEngines() {
+//        this.addChild(this.pecasEngine);
+//        this.pecasEngine.setDelegate(this);
+//    }
+
+
+    @Override
+    public void criaPeca(Pecas peca) {
+        peca.setDelegate(this);
+        this.pecasLayer.addChild(peca);
+        peca.start();
+        this.pecasArray.add(peca);
+    }
+
+    @Override
+    public void removePeca(Pecas peca) {
+        this.pecasArray.remove(peca);
     }
 }

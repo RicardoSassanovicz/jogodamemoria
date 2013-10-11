@@ -2,6 +2,9 @@ package br.com.jogodamemoria.jogo.controle;
 
 import android.provider.MediaStore;
 
+import org.cocos2d.actions.interval.CCFadeOut;
+import org.cocos2d.actions.interval.CCScaleBy;
+import org.cocos2d.actions.interval.CCSpawn;
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.types.CGPoint;
 
@@ -21,9 +24,27 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
  */
 public class QuestionButtons extends CCLayer implements ButtonDelegate{
 
-    private Button i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16,botaPecasArrayFrutas[];
+    private CGPoint botaoPress;
+    private Button i1;
+    private Button i2;
+    private Button i3;
+    private Button i4;
+    private Button i5;
+    private Button i6;
+    private Button i7;
+    private Button i8;
+    private Button i9;
+    private Button i10;
+    private Button i11;
+    private Button i12;
+    private Button i13;
+    private Button i14;
+    private Button i15;
+    private Button i16;
+    private Button botaoPecasArrayFrutas[];
     private Button imagens[] = {i1,i2,i3,i4,i5,i6,i7,i8,i9,i10,i11,i12,i13,i14,i15,i16};
-    private FrutasButtons frutasButtons;
+    public FrutasButtons frutasButtons = new FrutasButtons();
+
 
     private TelaDoJogo delegate;
 
@@ -75,6 +96,19 @@ public class QuestionButtons extends CCLayer implements ButtonDelegate{
     @Override
     public void buttonClicked (Button sender) {
 
-    }
+     botaoPecasArrayFrutas = frutasButtons.getImagens();
 
+        for (int i = 0; i <  imagens.length; i++){
+            if (sender.equals(imagens[i])){
+
+                this.imagens[i].setVisible(false);
+
+//                this.botaoPress = imagens[i].getPosition();
+//                this.imagens[i] = new Button(Frutas.CEREJA);
+//                this.setPosition(botaoPress);
+//                this.imagens[i].setDelegate(this);
+//                addChild(imagens[i]);
+            }
+        }
+    }
 }

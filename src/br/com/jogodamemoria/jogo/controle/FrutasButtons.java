@@ -18,17 +18,10 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
 
     private Button morangoButton, bananaButton, laranjaButton, limaoButton, macaButton,
                    peraButton, cerejaButton, kiwiButton, tomateButton, mangaButton;
-    private Button rec[] ,imagens[] = {morangoButton, bananaButton, laranjaButton, limaoButton,
+    private Button imagens[] = {morangoButton, bananaButton, laranjaButton, limaoButton,
                                        macaButton, peraButton, cerejaButton, kiwiButton,
-                                       tomateButton, mangaButton};
-
-
+                                       tomateButton, mangaButton,mangaButton,mangaButton,mangaButton,mangaButton,mangaButton,mangaButton};
     private TelaDoJogo delegate;
-    private Button captButton;
-
-    public static FrutasButtons frutasButtons(){
-        return new FrutasButtons();
-    }
 
     public void FrutasButtons(){
         setImagens();
@@ -47,6 +40,12 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
         this.imagens[7] = new Button(Frutas.KIWI);
         this.imagens[8] = new Button(Frutas.TOMATE);
         this.imagens[9] = new Button(Frutas.MANGA);
+        this.imagens[10] = new Button(Frutas.MANGA);
+        this.imagens[11] = new Button(Frutas.MANGA);
+        this.imagens[12] = new Button(Frutas.MANGA);
+        this.imagens[13] = new Button(Frutas.MANGA);
+        this.imagens[14] = new Button(Frutas.MANGA);
+        this.imagens[15] = new Button(Frutas.MANGA);
 
         for (int i = 0; i < imagens.length; i++) {
             this.imagens[i].setDelegate(this);
@@ -54,8 +53,6 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
     }
 
     public void setPosicao(){
-
-
         this.imagens[0].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 135, screenHeight() - 400)));
         this.imagens[1].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 285, screenHeight()- 400)));
         this.imagens[2].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 435, screenHeight() - 400)));
@@ -66,6 +63,12 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
         this.imagens[7].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 585, screenHeight()- 550)));
         this.imagens[8].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 135, screenHeight()- 700)));
         this.imagens[9].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 285, screenHeight() - 700)));
+        this.imagens[10].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 435, screenHeight() - 700)));
+        this.imagens[11].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 585, screenHeight() - 700)));
+        this.imagens[12].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 135, screenHeight() - 850)));
+        this.imagens[13].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 285, screenHeight() - 850)));
+        this.imagens[14].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 435, screenHeight() - 850)));
+        this.imagens[15].setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() - 585, screenHeight() - 850)));
 
         for (int i = 0; i < imagens.length; i++) {
             addChild(imagens[i]);
@@ -73,9 +76,12 @@ public class FrutasButtons extends CCLayer implements ButtonDelegate{
 
     }
 
+    public Button[] getImagens() {
+        return imagens;
+    }
 
-    public void setDelegate(TelaDoJogo delegate) {
-        this.delegate = delegate;
+    public void setImagens(Button[] imagens) {
+        this.imagens = imagens;
     }
 
     @Override

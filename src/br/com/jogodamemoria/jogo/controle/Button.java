@@ -1,7 +1,5 @@
 package br.com.jogodamemoria.jogo.controle;
 
-
-
 import android.view.MotionEvent;
 
 import br.com.jogodamemoria.jogo.interfaces.ButtonDelegate;
@@ -13,17 +11,11 @@ import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.types.CGRect;
 import org.cocos2d.types.CGPoint;
 
-
-
-/**
- * Created by ricardo on 23/09/13.
- */
 public class Button extends CCLayer{
 
     private CCSprite imagemBotao;
 
     private ButtonDelegate delegate;
-
 
     public Button(String imagemBotao) {
         this.setIsTouchEnabled(true);
@@ -35,7 +27,6 @@ public class Button extends CCLayer{
     public void setDelegate(ButtonDelegate sender) {
         this.delegate = sender;
     }
-
 
     //#### avisa ao delegate quando o botao foi tocado ####
     @Override
