@@ -7,8 +7,8 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.types.CGPoint;
 
 import br.com.jogodamemoria.configuracoes.Assets;
+import br.com.jogodamemoria.jogo.controle.MenuButtonsTelaTitulo;
 import br.com.jogodamemoria.jogo.screens.ScreenBackground;
-import br.com.jogodamemoria.jogo.controle.MenuButtons;
 
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.resolucaoDaTela;
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenHeight;
@@ -47,7 +47,7 @@ public class TelaDeTitulo extends CCLayer {
         this.addChild(title);
 
         // Botoes =D
-        MenuButtons menuLayer = new MenuButtons();
+        MenuButtonsTelaTitulo menuLayer = new MenuButtonsTelaTitulo();
         this.addChild(menuLayer);
 
 

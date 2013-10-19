@@ -4,6 +4,7 @@ package br.com.jogodamemoria.jogo.controle;
 import br.com.jogodamemoria.configuracoes.Assets;
 import br.com.jogodamemoria.jogo.interfaces.ButtonDelegate;
 import br.com.jogodamemoria.jogo.scenes.TelaDoJogo;
+import br.com.jogodamemoria.jogo.scenes.TelaPreparaJogo;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.transitions.CCFadeTransition;
@@ -19,7 +20,7 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
  */
 
 
-public class MenuButtons extends CCLayer implements ButtonDelegate {
+public class MenuButtonsTelaTitulo extends CCLayer implements ButtonDelegate {
 
     private Button playButton;
     private Button highScoredButton;
@@ -33,7 +34,7 @@ public class MenuButtons extends CCLayer implements ButtonDelegate {
         if (sender.equals(this.playButton)) {
             //Diteror chama pra mim a tela do jogo e cria ela pra mim!
             CCDirector.sharedDirector().replaceScene(
-                    CCFadeTransition.transition(1.0f, TelaDoJogo.createGame())
+                    CCFadeTransition.transition(1.0f, TelaPreparaJogo.createGame())
             );
         }
         if (sender.equals(this.highScoredButton)) {
@@ -43,7 +44,7 @@ public class MenuButtons extends CCLayer implements ButtonDelegate {
 
     }
 
-    public MenuButtons() {
+    public MenuButtonsTelaTitulo() {
         this.setIsTouchEnabled(true);
 
         //seta os botoes para os devidas imagens

@@ -5,6 +5,7 @@ package br.com.jogodamemoria.configuracoes;
  */
 public class Frutas {
 
+
     public static String MACA = "Apple.png";
     public static String LIMAO = "Lemon.png";
     public static String MANGA = "Mango.png";
@@ -16,6 +17,6 @@ public class Frutas {
     public static String PERA = "Pear.png";
     public static String TOMATE = "Tomato.png";
 
-
+    public static String Imagens[] = {MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA,MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA};
 
 }
