@@ -12,15 +12,15 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.types.CGPoint;
 import org.cocos2d.types.CGRect;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import br.com.jogodamemoria.configuracoes.Animais;
 import br.com.jogodamemoria.configuracoes.Frutas;
 import br.com.jogodamemoria.configuracoes.Question;
 import br.com.jogodamemoria.jogo.scenes.TelaDoJogo;
+import br.com.jogodamemoria.jogo.scenes.TelaPreparaJogo;
 
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.resolucaoDaTela;
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenHeight;
@@ -31,8 +31,11 @@ public class MenuButtonsTelaJogo extends CCLayer {
     private static final ScheduledExecutorService tempo = Executors.newSingleThreadScheduledExecutor();
     private CCSprite i1, i2, i3, i4, i5, i6, i7, i8, imagens[] = {i1, i2, i3, i4, i5, i6, i7, i8, i1, i2, i3, i4, i5, i6, i7, i8};
     private CGPoint primeiraPosicao, segundaPosicao;
-    private int count = 0, tag1, tag2, x, y, ultimoBotaoClicado = -1, quantBotoesClicados = 0, quant_erros = 0;
+    private int opCategoria, count = 0, tag1, tag2, x, y, ultimoBotaoClicado = -1, quantBotoesClicados = 0, quant_erros = 0;
     private TelaDoJogo delegate;
+    private TelaPreparaJogo telaPreparaJogo = new TelaPreparaJogo();
+    private String tipoCategoria[];
+
 
     public static MenuButtonsTelaJogo questionButtons() {
         return new MenuButtonsTelaJogo();
@@ -49,8 +52,9 @@ public class MenuButtonsTelaJogo extends CCLayer {
     }
 
     public void setimagens() {
-        Collections.shuffle(Arrays.asList(imagens));
+
         for (int i = 0; i < imagens.length; i++) {
+
             this.imagens[i] = CCSprite.sprite(Question.PERGUNTA1);
 
             if (count < 7) {
@@ -87,7 +91,7 @@ public class MenuButtonsTelaJogo extends CCLayer {
         }
     }
 
-    //#### avisa ao delegate quando o botao foi tocado ####
+    //avisa ao delegate quando o botao foi tocado
     @Override
     protected void registerWithTouchDispatcher() {
         CCTouchDispatcher.sharedDispatcher()
@@ -114,9 +118,65 @@ public class MenuButtonsTelaJogo extends CCLayer {
         return true;
     }
 
+    //esconde a figura e seta a pergunta
+    private void esconde(int i, CGPoint pos, int tag) {
+        this.imagens[i].setVisible(false);
+        this.imagens[i] = CCSprite.sprite(Question.PERGUNTA1);
+        this.imagens[i].setTag(tag);
+        this.imagens[i].setPosition(pos);
+        addChild(imagens[i]);
+    }
+
+    //MOSTRA IMAGENS[]
+    private void mostra(int i, CGPoint pos, int tag) {
+        this.imagens[i].setVisible(false);
+        this.imagens[i] = CCSprite.sprite(Frutas.ImagensFrutas[i]);
+        this.imagens[i].setTag(tag);
+        this.imagens[i].setPosition(pos);
+        addChild(imagens[i]);
+    }
+
+    //EXIBE MENSAGEM
+    private void criaMensagem(final String titulo, final String texto) {
+        CCDirector.sharedDirector().getActivity().runOnUiThread(new Runnable() {
+            public void run() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(CCDirector.sharedDirector().getActivity());
+                builder.setTitle(titulo);
+                builder.setMessage(texto);
+                builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
+    }
+
+    //EXIBE UMA MENSAGEM TIPO TOAST
+    private void criaToast(final String is) {
+        CCDirector.sharedDirector().getActivity().runOnUiThread(new Runnable() {
+            public void run() {
+                Toast.makeText(CCDirector.sharedDirector().getActivity(), is, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    //VERIFICA QUAL CATEGORIA FOI ESCOLHIDA NO DIALOGO
+    private String[] verificaCategoria(){
+        opCategoria = telaPreparaJogo.getRgCategoria().getCheckedRadioButtonId();
+        if(opCategoria == telaPreparaJogo.getRbFrutas().getId()){
+          return Frutas.ImagensFrutas;
+        }
+        else {
+         return Animais.ImagensAnimais;
+        }
+    }
+
     public void buttonClicked(CCSprite sender) {
         //inicio da verificação
         for (int i = 0; i < imagens.length; i++) {
+
             //indentifica qual foi o botao clicado do meu vetor
             if (quantBotoesClicados == 16) {
                 criaMensagem("Parabéns", "Você Conseguiu!");
@@ -161,49 +221,6 @@ public class MenuButtonsTelaJogo extends CCLayer {
                 }
             }
         }
-    }
-
-    //esconde a figura e seta a pergunta
-    private void esconde(int i, CGPoint pos, int tag) {
-        this.imagens[i].setVisible(false);
-        this.imagens[i] = CCSprite.sprite(Question.PERGUNTA1);
-        this.imagens[i].setTag(tag);
-        this.imagens[i].setPosition(pos);
-        addChild(imagens[i]);
-    }
-
-    //mostra
-    private void mostra(int i, CGPoint pos, int tag) {
-        this.imagens[i].setVisible(false);
-        this.imagens[i] = CCSprite.sprite(Frutas.Imagens[i]);
-        this.imagens[i].setTag(tag);
-        this.imagens[i].setPosition(pos);
-        addChild(imagens[i]);
-    }
-
-    //mensagens
-    private void criaMensagem(final String titulo, final String texto) {
-        CCDirector.sharedDirector().getActivity().runOnUiThread(new Runnable() {
-            public void run() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(CCDirector.sharedDirector().getActivity());
-                builder.setTitle(titulo);
-                builder.setMessage(texto);
-                builder.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                    }
-                });
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
-        });
-    }
-    //exibe alerta
-    private void criaToast(final String is) {
-        CCDirector.sharedDirector().getActivity().runOnUiThread(new Runnable() {
-            public void run() {
-                Toast.makeText(CCDirector.sharedDirector().getActivity(), is, Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
 }

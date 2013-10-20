@@ -4,10 +4,15 @@
     <!-- From: file:/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/res/values/dimens.xml -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/res/values/ids.xml -->
+    <item name="RadioTipoCategoria" type="id">radioCategoria</item>
     <!-- From: file:/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/res/values/strings.xml -->
+    <string name="Jogador">jogador</string>
     <string name="action_settings">Settings</string>
     <string name="app_name">jogodamemoria</string>
     <string name="hello_world">Hello world!</string>
+    <string name="password"></string>
+    <string name="username"></string>
     <!-- From: file:/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/res/values/styles.xml -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--

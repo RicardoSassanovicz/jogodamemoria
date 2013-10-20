@@ -17,6 +17,6 @@ public class Frutas {
     public static String PERA = "Pear.png";
     public static String TOMATE = "Tomato.png";
 
-    public static String Imagens[] = {MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA,MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA};
+    public static String ImagensFrutas[] = {MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA,MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA};
 
 }

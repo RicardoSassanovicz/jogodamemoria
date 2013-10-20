@@ -12,6 +12,5 @@ public class Assets {
     public static String PLAY = "play.png";
     public static String HIGHSCORE = "highscore.png";
     public static String OPCOES = "opcoes.png";
-    public static String COMECAR = "comecar.png";
 
 }

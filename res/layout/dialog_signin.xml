@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:scaleType="fitStart"
+        android:background="#FFFFBB33"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logodialogo" />
+
+    <EditText
+        android:id="@+id/editTextJogador"
+        android:inputType="textEmailAddress"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/Jogador" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="left|center_vertical"
+        android:background="#cdcdcd"
+        android:orientation="vertical"
+        android:id="@id/RadioTipoCategoria">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Escolha em qual categoria você irá jogar!"
+            android:id="@+id/textView"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:singleLine="false"
+            android:autoText="false"
+            android:textColor="#a92700"
+            android:layout_marginTop="13dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Animais"
+            android:id="@+id/radioButtonAnimais"
+            android:layout_gravity="left|center_vertical"
+            android:checked="false"
+             />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Frutas"
+            android:id="@+id/radioButtonFrutas"
+            android:layout_gravity="left|center_vertical"
+            android:checked="false"
+           />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Qual será o nível de dificuldade ?"
+        android:id="@+id/textView2"
+        android:layout_gravity="center"
+        android:textColor="#a92700"
+        android:layout_marginTop="14dp" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:layout_gravity="left|center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:text="Fácil"
+            android:id="@+id/radioButtonFacil"
+            android:checked="false"
+            android:textAlignment="center"
+            android:textColor="#009d1c" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Difícil"
+            android:id="@+id/radioButtonDificil"
+            android:checked="false"
+            android:layout_weight="0.34"
+            android:textAlignment="center"
+            android:textColor="#ff0006" />
+
+    </RadioGroup>
+
+</LinearLayout>
