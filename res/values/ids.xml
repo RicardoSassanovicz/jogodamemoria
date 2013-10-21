@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources><item name="RadioTipoCategoria" type="id">radioCategoria</item></resources>
+<resources><item name="RadioTipoCategoria" type="id">radioCategoria</item><item name="radioGroupCategoria" type="id">CategoriaRadioGroup</item></resources>

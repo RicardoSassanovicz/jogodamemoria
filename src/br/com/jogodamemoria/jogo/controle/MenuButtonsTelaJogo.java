@@ -16,9 +16,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import br.com.jogodamemoria.configuracoes.Animais;
-import br.com.jogodamemoria.configuracoes.Frutas;
-import br.com.jogodamemoria.configuracoes.Question;
+import br.com.jogodamemoria.configuracoes.Assets;
 import br.com.jogodamemoria.jogo.scenes.TelaDoJogo;
 import br.com.jogodamemoria.jogo.scenes.TelaPreparaJogo;
 
@@ -33,8 +31,9 @@ public class MenuButtonsTelaJogo extends CCLayer {
     private CGPoint primeiraPosicao, segundaPosicao;
     private int opCategoria, count = 0, tag1, tag2, x, y, ultimoBotaoClicado = -1, quantBotoesClicados = 0, quant_erros = 0;
     private TelaDoJogo delegate;
-    private TelaPreparaJogo telaPreparaJogo = new TelaPreparaJogo();
-    private String tipoCategoria[];
+    private String[] tipoCategoria;
+
+//    TelaPreparaJogo telaPreparaJogo = TelaPreparaJogo.telaPreparaJogo();
 
 
     public static MenuButtonsTelaJogo questionButtons() {
@@ -55,7 +54,7 @@ public class MenuButtonsTelaJogo extends CCLayer {
 
         for (int i = 0; i < imagens.length; i++) {
 
-            this.imagens[i] = CCSprite.sprite(Question.PERGUNTA1);
+            this.imagens[i] = CCSprite.sprite(Assets.PERGUNTA);
 
             if (count < 7) {
                 this.imagens[i].setTag(count);
@@ -121,7 +120,7 @@ public class MenuButtonsTelaJogo extends CCLayer {
     //esconde a figura e seta a pergunta
     private void esconde(int i, CGPoint pos, int tag) {
         this.imagens[i].setVisible(false);
-        this.imagens[i] = CCSprite.sprite(Question.PERGUNTA1);
+        this.imagens[i] = CCSprite.sprite(Assets.PERGUNTA);
         this.imagens[i].setTag(tag);
         this.imagens[i].setPosition(pos);
         addChild(imagens[i]);
@@ -130,7 +129,7 @@ public class MenuButtonsTelaJogo extends CCLayer {
     //MOSTRA IMAGENS[]
     private void mostra(int i, CGPoint pos, int tag) {
         this.imagens[i].setVisible(false);
-        this.imagens[i] = CCSprite.sprite(Frutas.ImagensFrutas[i]);
+        this.imagens[i] = CCSprite.sprite(verificaCategoria()[i]);
         this.imagens[i].setTag(tag);
         this.imagens[i].setPosition(pos);
         addChild(imagens[i]);
@@ -164,15 +163,18 @@ public class MenuButtonsTelaJogo extends CCLayer {
 
     //VERIFICA QUAL CATEGORIA FOI ESCOLHIDA NO DIALOGO
     private String[] verificaCategoria(){
-        opCategoria = telaPreparaJogo.getRgCategoria().getCheckedRadioButtonId();
-        if(opCategoria == telaPreparaJogo.getRbFrutas().getId()){
-          return Frutas.ImagensFrutas;
-        }
-        else {
-         return Animais.ImagensAnimais;
-        }
-    }
 
+         String compara = TelaPreparaJogo.getRadioCategoria().toString();
+
+               if (compara.equals("Frutas")){
+                    return Assets.ImagensFrutas;
+                }
+                else
+                {
+                    return Assets.ImagensAnimais;
+                }
+
+    }
     public void buttonClicked(CCSprite sender) {
         //inicio da verificação
         for (int i = 0; i < imagens.length; i++) {

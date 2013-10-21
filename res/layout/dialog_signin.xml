@@ -21,43 +21,42 @@
         android:layout_marginBottom="4dp"
         android:hint="@string/Jogador" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha em qual categoria você irá jogar!"
+        android:id="@+id/textView"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:singleLine="false"
+        android:autoText="false"
+        android:textColor="#a92700"
+        android:layout_marginTop="21dp"
+        android:layout_weight="0.36"
+        android:layout_marginBottom="16dp" />
+
     <RadioGroup
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_gravity="left|center_vertical"
-        android:background="#cdcdcd"
-        android:orientation="vertical"
-        android:id="@id/RadioTipoCategoria">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Escolha em qual categoria você irá jogar!"
-            android:id="@+id/textView"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:singleLine="false"
-            android:autoText="false"
-            android:textColor="#a92700"
-            android:layout_marginTop="13dp" />
+        android:orientation="horizontal"
+        android:id="@id/radioGroupCategoria">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Animais"
-            android:id="@+id/radioButtonAnimais"
+            android:text="@string/frutas"
+            android:id="@+id/radioButton_Frutas"
             android:layout_gravity="left|center_vertical"
-            android:checked="false"
-             />
+            android:layout_weight="0.59" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Frutas"
-            android:id="@+id/radioButtonFrutas"
+            android:text="@string/animais"
+            android:id="@+id/radioButton_Animais"
             android:layout_gravity="left|center_vertical"
-            android:checked="false"
-           />
+            android:layout_weight="0.79"
+            android:layout_marginLeft="30dp" />
     </RadioGroup>
 
     <TextView
@@ -67,7 +66,8 @@
         android:id="@+id/textView2"
         android:layout_gravity="center"
         android:textColor="#a92700"
-        android:layout_marginTop="14dp" />
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="16dp" />
 
     <RadioGroup
         android:layout_width="fill_parent"
@@ -78,7 +78,7 @@
         <RadioButton
             android:layout_width="188dp"
             android:layout_height="wrap_content"
-            android:text="Fácil"
+            android:text="Fácil 4x4"
             android:id="@+id/radioButtonFacil"
             android:checked="false"
             android:textAlignment="center"
@@ -87,7 +87,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Difícil"
+            android:text="Difícil 4x6"
             android:id="@+id/radioButtonDificil"
             android:checked="false"
             android:layout_weight="0.34"

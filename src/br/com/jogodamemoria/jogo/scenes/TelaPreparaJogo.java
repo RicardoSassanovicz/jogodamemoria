@@ -5,9 +5,13 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import br.com.jogodamemoria.R;
 
@@ -24,17 +28,17 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.resolucaoDaTe
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenHeight;
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
 
-/**
- * Created by ricardo on 18/10/13.
- */
 public class TelaPreparaJogo extends CCLayer{
 
     private ScreenBackground background;
     private EditText edJogador;
-    private RadioButton rbDificil, rbFacil, rbFrutas, rbAnimais;
-    private RadioGroup rgCategoria;
-    String sTJogador;
+    public static RadioButton rbDificil, rbFacil,radioCategoria;
+    private RadioGroup radioGroupCategoria;
+    static public String retornoCategoria;
 
+    public static TelaPreparaJogo telaPreparaJogo() {
+        return new TelaPreparaJogo();
+    }
 
     public TelaPreparaJogo() {
         this.background = new ScreenBackground(Assets.BACKGROUND);
@@ -64,19 +68,23 @@ public class TelaPreparaJogo extends CCLayer{
                 AlertDialog.Builder builder = new AlertDialog.Builder(CCDirector.sharedDirector().getActivity());
                 builder.setView(inflater.inflate(R.layout.dialog_signin, null));
 
-                    rgCategoria = (RadioGroup) inflator.findViewById(R.id.RadioTipoCategoria);
-                    edJogador = (EditText) inflator.findViewById(R.id.editTextJogador);
-                    rbAnimais = (RadioButton) inflator.findViewById(R.id.radioButtonAnimais);
-                    rbDificil = (RadioButton) inflator.findViewById(R.id.radioButtonDificil);
-                    rbFacil = (RadioButton) inflator.findViewById(R.id.radioButtonFacil);
-                    rbFrutas = (RadioButton) inflator.findViewById(R.id.radioButtonFrutas);
+                edJogador = (EditText) inflator.findViewById(R.id.editTextJogador);
+                rbDificil = (RadioButton) inflator.findViewById(R.id.radioButtonDificil);
+                rbFacil = (RadioButton) inflator.findViewById(R.id.radioButtonFacil);
+                radioGroupCategoria = (RadioGroup) inflator.findViewById(R.id.radioGroupCategoria);
+
+                int selectedId = radioGroupCategoria.getCheckedRadioButtonId();
+
+                // find the radiobutton by returned id
+                radioCategoria = (RadioButton) inflator.findViewById(selectedId);
+
 
                         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
 
+
                                 CCDirector.sharedDirector().replaceScene(
                                         CCFadeTransition.transition(1.0f, TelaDoJogo.createGame()));
-
                             }
                         });
                         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -86,55 +94,16 @@ public class TelaPreparaJogo extends CCLayer{
                         });
                 builder.create();
                 builder.show();
+
             }
         });
     }
 
-    public RadioButton getRbDificil() {
-        return rbDificil;
+    public static RadioButton getRadioCategoria() {
+        return radioCategoria;
     }
 
-    public void setRbDificil(RadioButton rbDificil) {
-        this.rbDificil = rbDificil;
-    }
-
-    public EditText getEdJogador() {
-        return edJogador;
-    }
-
-    public void setEdJogador(EditText edJogador) {
-        this.edJogador = edJogador;
-    }
-
-    public RadioButton getRbFacil() {
-        return rbFacil;
-    }
-
-    public void setRbFacil(RadioButton rbFacil) {
-        this.rbFacil = rbFacil;
-    }
-
-    public RadioButton getRbAnimais() {
-        return rbAnimais;
-    }
-
-    public void setRbAnimais(RadioButton rbAnimais) {
-        this.rbAnimais = rbAnimais;
-    }
-
-    public RadioButton getRbFrutas() {
-        return rbFrutas;
-    }
-
-    public void setRbFrutas(RadioButton rbFrutas) {
-        this.rbFrutas = rbFrutas;
-    }
-
-    public RadioGroup getRgCategoria() {
-        return rgCategoria;
-    }
-
-    public void setRgCategoria(RadioGroup rgCategoria) {
-        this.rgCategoria = rgCategoria;
+    public static void setRadioCategoria(RadioButton radioCategoria) {
+        TelaPreparaJogo.radioCategoria = radioCategoria;
     }
 }
