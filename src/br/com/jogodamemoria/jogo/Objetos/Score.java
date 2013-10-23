@@ -11,7 +11,7 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
  */
 public class Score extends CCLayer {
 
-    private int score;
+    public int score;
 
     private CCBitmapFontAtlas text;
 
@@ -21,12 +21,17 @@ public class Score extends CCLayer {
                 String.valueOf(this.score),
                 "UniSansSemiBold_Numbers_240.fnt");
         this.text.setScale((float) 240 / 240);
-        this.setPosition(screenWidth()-50, screenHeight()-50);
+        this.setPosition(screenWidth()-60, screenHeight()-60);
         this.addChild(this.text);
     }
 
-    public void increase() {
-        score++;
+    public void acrecenta() {
+        score+=10;
+        this.text.setString(String.valueOf(this.score));
+
+    }
+    public void tira() {
+        score-=3;
         this.text.setString(String.valueOf(this.score));
     }
 }

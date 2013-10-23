@@ -6,7 +6,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="username" />
     <string name="password" />
-    <string name="Jogador">jogador</string>
-    <string name="Categorias">categorias</string><string name="frutas">Frutas</string><string name="animais">Animais</string>
+    <string name="jogador">Jogador</string>
+    <string name="Categorias">categorias</string>
+    <string name="frutas">Frutas</string>
+    <string name="animais">Animais</string>
 
 </resources>

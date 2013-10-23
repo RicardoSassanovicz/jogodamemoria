@@ -44,7 +44,7 @@ public class TelaPreparaJogo extends CCLayer{
         this.background = new ScreenBackground(Assets.BACKGROUND);
         this.background.setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() / 2.0f, screenHeight() / 2.0f)));
         this.addChild(this.background);
-        criaMensagem();
+        //criaMensagem();
     }
 
     public static CCScene createGame() {
@@ -60,44 +60,44 @@ public class TelaPreparaJogo extends CCLayer{
         return cena;
     }
 
-    private void criaMensagem() {
-        CCDirector.sharedDirector().getActivity().runOnUiThread(new Runnable() {
-            public void run() {
-                LayoutInflater inflater = CCDirector.sharedDirector().getActivity().getLayoutInflater();
-                View inflator = inflater.inflate(R.layout.dialog_signin, null);
-                AlertDialog.Builder builder = new AlertDialog.Builder(CCDirector.sharedDirector().getActivity());
-                builder.setView(inflater.inflate(R.layout.dialog_signin, null));
-
-                edJogador = (EditText) inflator.findViewById(R.id.editTextJogador);
-                rbDificil = (RadioButton) inflator.findViewById(R.id.radioButtonDificil);
-                rbFacil = (RadioButton) inflator.findViewById(R.id.radioButtonFacil);
-                radioGroupCategoria = (RadioGroup) inflator.findViewById(R.id.radioGroupCategoria);
-
-                int selectedId = radioGroupCategoria.getCheckedRadioButtonId();
-
-                // find the radiobutton by returned id
-                radioCategoria = (RadioButton) inflator.findViewById(selectedId);
-
-
-                        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-
-
-                                CCDirector.sharedDirector().replaceScene(
-                                        CCFadeTransition.transition(1.0f, TelaDoJogo.createGame()));
-                            }
-                        });
-                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                dialog.cancel();
-                            }
-                        });
-                builder.create();
-                builder.show();
-
-            }
-        });
-    }
+//    private void criaMensagem() {
+//        CCDirector.sharedDirector().getActivity().runOnUiThread(new Runnable() {
+//            public void run() {
+//                LayoutInflater inflater = CCDirector.sharedDirector().getActivity().getLayoutInflater();
+//                View inflator = inflater.inflate(R.layout.dialog_signin, null);
+//                AlertDialog.Builder builder = new AlertDialog.Builder(CCDirector.sharedDirector().getActivity());
+//                builder.setView(inflater.inflate(R.layout.dialog_signin, null));
+//
+//                edJogador = (EditText) inflator.findViewById(R.id.editTextJogador);
+//                rbDificil = (RadioButton) inflator.findViewById(R.id.radioButtonDificil);
+//                rbFacil = (RadioButton) inflator.findViewById(R.id.radioButtonFacil);
+//                radioGroupCategoria = (RadioGroup) inflator.findViewById(R.id.radioGroupCategoria);
+//
+//                int selectedId = radioGroupCategoria.getCheckedRadioButtonId();
+//
+//                // find the radiobutton by returned id
+//                radioCategoria = (RadioButton) inflator.findViewById(selectedId);
+//
+//
+//                        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int id) {
+//
+//
+//                                CCDirector.sharedDirector().replaceScene(
+//                                        CCFadeTransition.transition(1.0f, TelaDoJogo.createGame()));
+//                            }
+//                        });
+//                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int whichButton) {
+//                                dialog.cancel();
+//                            }
+//                        });
+//                builder.create();
+//                builder.show();
+//
+//            }
+//        });
+//    }
 
     public static RadioButton getRadioCategoria() {
         return radioCategoria;

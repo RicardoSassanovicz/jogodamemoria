@@ -34,7 +34,7 @@ public class MenuButtonsTelaTitulo extends CCLayer implements ButtonDelegate {
         if (sender.equals(this.playButton)) {
             //Diteror chama pra mim a tela do jogo e cria ela pra mim!
             CCDirector.sharedDirector().replaceScene(
-                    CCFadeTransition.transition(1.0f, TelaPreparaJogo.createGame())
+                    CCFadeTransition.transition(1.0f, TelaDoJogo.createGame())
             );
         }
         if (sender.equals(this.highScoredButton)) {

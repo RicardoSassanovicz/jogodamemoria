@@ -19,17 +19,16 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
  * Created by ricardo on 21/09/13.
  */
 
-//#### Layer cria a tela ####
+// Layer cria a tela
 public class TelaDeTitulo extends CCLayer {
 
-    //### Adicionando o background na tela de abertura TitleScreen ####
+    // Adicionando o background na tela de abertura TitleScreen
 
     private ScreenBackground background;
 
-    //#### Instacia uma tela do framework ####
-    //#### Prepara os elementos que irao ser usados background, logo, e bot��es.####
+    // Instacia uma tela do framework
+    // Prepara os elementos que irao ser usados background, logo, e bot��es.
     public CCScene cena () {
-        //#### Invocando m��todo node() ####
         CCScene cena = CCScene.node();
         cena.addChild(this);
         return cena;
