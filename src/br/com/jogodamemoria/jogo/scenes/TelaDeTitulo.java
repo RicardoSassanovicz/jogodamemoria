@@ -42,7 +42,7 @@ public class TelaDeTitulo extends CCLayer {
 
         // logo
         CCSprite title = CCSprite.sprite(Assets.LOGO);
-        title.setPosition(resolucaoDaTela(CGPoint.ccp( screenWidth() / 2 , screenHeight() - 230 )));
+        title.setPosition(resolucaoDaTela(CGPoint.ccp( screenWidth() / 2 , screenHeight() - 380 )));
         this.addChild(title);
 
         // Botoes =D

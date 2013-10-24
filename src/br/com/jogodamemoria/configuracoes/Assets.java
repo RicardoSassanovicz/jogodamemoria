@@ -1,5 +1,8 @@
 package br.com.jogodamemoria.configuracoes;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 /**
  * Created by ricardo on 21/09/13.
  */
@@ -29,6 +32,8 @@ public class Assets {
 
     public static String ImagensAnimais[] = {CAVALO,COBRA,TUCANO,ZEBRA,DOG,PASSARO,SAPO,PEIXE,CAVALO,COBRA,TUCANO,ZEBRA,DOG,PASSARO,SAPO,PEIXE};
 
+
+
     public static String MACA = "Apple.png";
     public static String LIMAO = "Lemon.png";
     public static String MANGA = "Mango.png";
@@ -42,6 +47,6 @@ public class Assets {
 
     public static String ImagensFrutas[] = {MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA,MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA};
 
-    public static String PERGUNTA = "pergunta1.png";
+
 
 }

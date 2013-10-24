@@ -36,12 +36,12 @@ public class FinalDoJogo extends CCLayer implements ButtonDelegate {
 
         // imagem
         CCSprite titulo = CCSprite.sprite(Assets.FINAL);
-        titulo.setPosition(resolucaoDaTela(CGPoint.ccp( screenWidth() /2 ,screenHeight() - 330 ))) ;
+        titulo.setPosition(resolucaoDaTela(CGPoint.ccp( screenWidth() /2 ,screenHeight() - 460 ))) ;
         this.addChild(titulo);
 
         this.setIsTouchEnabled(true);
         this.finalButton = new Button(Assets.JOGARNOVAMENTE);
-        this.finalButton.setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() /2 ,screenHeight() - 650))) ;
+        this.finalButton.setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() /2 ,screenHeight() - 850))) ;
         this.finalButton.setDelegate(this);
         this.addChild(this.finalButton);
 

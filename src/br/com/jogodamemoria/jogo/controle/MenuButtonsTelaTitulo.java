@@ -1,6 +1,11 @@
 package br.com.jogodamemoria.jogo.controle;
 
 
+import android.app.Dialog;
+import android.view.View;
+import android.view.Window;
+
+import br.com.jogodamemoria.R;
 import br.com.jogodamemoria.configuracoes.Assets;
 import br.com.jogodamemoria.jogo.interfaces.ButtonDelegate;
 import br.com.jogodamemoria.jogo.scenes.TelaDoJogo;
@@ -40,6 +45,27 @@ public class MenuButtonsTelaTitulo extends CCLayer implements ButtonDelegate {
         if (sender.equals(this.highScoredButton)) {
             System.out.println("Clicou em: Highscore");
         }
+        if (sender.equals(this.opcoesButton)){
+            CCDirector.sharedDirector().getActivity().runOnUiThread(new Runnable() {
+                public void run() {
+
+                    final Dialog dialog = new Dialog(CCDirector.sharedDirector().getActivity());
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.dialog_help);
+
+                    final android.widget.Button btnOk = (android.widget.Button) dialog.findViewById(R.id.buttonHelpOk);
+
+
+                    btnOk.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog.show();
+                }
+            });
+        }
 
 
     }
@@ -73,13 +99,13 @@ public class MenuButtonsTelaTitulo extends CCLayer implements ButtonDelegate {
 
 
         playButton.setPosition(resolucaoDaTela
-                (CGPoint.ccp(screenWidth() - 200, screenHeight() - 550))
-        );
-        highScoredButton.setPosition(resolucaoDaTela
                 (CGPoint.ccp(screenWidth() - 200, screenHeight() - 700))
         );
-        opcoesButton.setPosition(resolucaoDaTela
+        highScoredButton.setPosition(resolucaoDaTela
                 (CGPoint.ccp(screenWidth() - 200, screenHeight() - 850))
+        );
+        opcoesButton.setPosition(resolucaoDaTela
+                (CGPoint.ccp(screenWidth() - 200, screenHeight() - 1000))
         );
 
     }
