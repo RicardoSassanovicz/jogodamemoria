@@ -1,4 +1,4 @@
-package br.com.jogodamemoria.jogo.screens;
+package br.com.jogodamemoria.jogo.telas;
 
 import org.cocos2d.nodes.CCSprite;
 

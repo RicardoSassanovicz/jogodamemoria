@@ -1,33 +1,40 @@
-package br.com.jogodamemoria.jogo.Objetos;
+package br.com.jogodamemoria.jogo.objetos;
 
-import org.cocos2d.layers.CCLayer;
-import org.cocos2d.opengl.CCBitmapFontAtlas;
+public class Jogador {
 
-import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenHeight;
-import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
-
-/**
- * Created by ricardo on 23/10/13.
- */
-public class Jogador extends CCLayer {
+    private Long id;
+    private String nome;
+    private String pontos;
 
 
-//    public String jogador;
-//
-//    private CCBitmapFontAtlas text;
-//
-//    public Jogador(){
-//
-//        this.text = CCBitmapFontAtlas.bitmapFontAtlas(
-//                String.valueOf(this.jogador),"");
-//        this.text.setScale((float) 240 / 240);
-//        this.setPosition(screenWidth()-500, screenHeight() - 1000);
-//        this.addChild(this.text);
-//    }
-//
-//    public void nomeJogador(String jogador) {
-//
-//        this.text.setString(String.valueOf(jogador));
-//
-//    }
+    public Jogador() {
+        super();
+        this.id = id;
+        this.nome = nome;
+        this.pontos = pontos;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getPontos() {
+        return pontos;
+    }
+
+    public void setPontos(String pontos) {
+        this.pontos = pontos;
+    }
 }

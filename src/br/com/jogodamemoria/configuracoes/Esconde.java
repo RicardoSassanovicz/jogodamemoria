@@ -5,7 +5,7 @@ package br.com.jogodamemoria.configuracoes;
  */
 public class Esconde {
 
-    public static String ESCONDE = "pergunta1.png";
+    public static String ESCONDE = "perg.png";
 
 }
 

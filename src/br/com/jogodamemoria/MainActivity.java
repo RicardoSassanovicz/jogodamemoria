@@ -1,19 +1,20 @@
 package br.com.jogodamemoria;
 
-import org.cocos2d.layers.CCScene;
-import org.cocos2d.nodes.CCDirector;
-import org.cocos2d.opengl.CCGLSurfaceView;
-
-import br.com.jogodamemoria.jogo.scenes.TelaDeTitulo;
-
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.Window;
 import android.view.WindowManager;
 
+import org.cocos2d.layers.CCScene;
+import org.cocos2d.nodes.CCDirector;
+import org.cocos2d.opengl.CCGLSurfaceView;
+
+import br.com.jogodamemoria.jogo.cenas.TelaDeTitulo;
+
 public class MainActivity extends Activity {
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,8 @@ public class MainActivity extends Activity {
         //#### abre tela principal ####
         CCScene cena = new TelaDeTitulo().cena();
         CCDirector.sharedDirector().runWithScene(cena);
+
+
 	}
 
 	@Override

@@ -1,8 +1,5 @@
 package br.com.jogodamemoria.configuracoes;
 
-import java.util.Arrays;
-import java.util.Collections;
-
 /**
  * Created by ricardo on 21/09/13.
  */
@@ -10,7 +7,7 @@ import java.util.Collections;
 
 public class Assets {
 
-    public static String BACKGROUND = "background.png";
+    public static String BACKGROUND = "background.jpg";
     public static String LOGO = "logo.png";
     public static String PLAY = "play.png";
     public static String HIGHSCORE = "highscore.png";
@@ -31,8 +28,6 @@ public class Assets {
 //    public static String PATO = "duck.png";
 
     public static String ImagensAnimais[] = {CAVALO,COBRA,TUCANO,ZEBRA,DOG,PASSARO,SAPO,PEIXE,CAVALO,COBRA,TUCANO,ZEBRA,DOG,PASSARO,SAPO,PEIXE};
-
-
 
     public static String MACA = "Apple.png";
     public static String LIMAO = "Lemon.png";

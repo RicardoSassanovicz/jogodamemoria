@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Imagem de fundo da tela do listview -->
+    <style name="MapBackground" parent="android:Theme">
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:layout_marginTop">53dp</item>
+        <item name="android:layout_marginBottom">53dp</item>
+        <item name="android:layout_height">350dp</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+</resources>

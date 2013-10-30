@@ -1,4 +1,4 @@
-package br.com.jogodamemoria.jogo.scenes;
+package br.com.jogodamemoria.jogo.cenas;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.nodes.CCDirector;
@@ -6,11 +6,10 @@ import org.cocos2d.types.CGPoint;
 import org.cocos2d.layers.CCScene;
 
 import br.com.jogodamemoria.configuracoes.Assets;
-import br.com.jogodamemoria.jogo.Objetos.Jogador;
-import br.com.jogodamemoria.jogo.Objetos.Score;
+import br.com.jogodamemoria.jogo.objetos.Score;
 import br.com.jogodamemoria.jogo.controle.GameButtons;
 import br.com.jogodamemoria.jogo.controle.MenuButtonsTelaJogo;
-import br.com.jogodamemoria.jogo.screens.ScreenBackground;
+import br.com.jogodamemoria.jogo.telas.ScreenBackground;
 
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.resolucaoDaTela;
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenHeight;
@@ -26,7 +25,6 @@ public class TelaDoJogo extends CCLayer{
     private ScreenBackground background;
     private CCLayer scoreLayer, jogadorLayer;
     public Score score;
-    public Jogador jogador;
 
     //ADICIONA O BACKGROUND A TELA DO JOGO
     private TelaDoJogo() {

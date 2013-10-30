@@ -2,12 +2,21 @@ package br.com.jogodamemoria.jogo.controle;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.view.MotionEvent;
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.widget.*;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.cocos2d.events.CCTouchDispatcher;
 import org.cocos2d.layers.CCLayer;
@@ -16,18 +25,16 @@ import org.cocos2d.nodes.CCSprite;
 import org.cocos2d.types.CGPoint;
 import org.cocos2d.types.CGRect;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import br.com.jogodamemoria.R;
 import br.com.jogodamemoria.configuracoes.Assets;
-import br.com.jogodamemoria.configuracoes.Esconde;
-import br.com.jogodamemoria.jogo.Objetos.Jogador;
-import br.com.jogodamemoria.jogo.Objetos.Score;
-import br.com.jogodamemoria.jogo.scenes.TelaDoJogo;
+import br.com.jogodamemoria.jogo.cenas.TelaDoJogo;
+import br.com.jogodamemoria.jogo.objetos.Jogador;
+import br.com.jogodamemoria.jogo.objetos.JogadorDao;
+import br.com.jogodamemoria.jogo.objetos.Score;
 
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.resolucaoDaTela;
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenHeight;
@@ -36,14 +43,15 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
 public class MenuButtonsTelaJogo extends CCLayer {
 
     private static final ScheduledExecutorService tempo = Executors.newSingleThreadScheduledExecutor();
-    private CCSprite antigo, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, imagens[] = {i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16};
+    public CCSprite ultimoSender, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, imagens[] = {i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16};
+    public CGPoint primeiraPosicao, segundaPosicao;
+    public int selectedId, opCategoria, count = 0, tag1, tag2, x, y, ultimoBotaoClicado = -1, quantBotoesClicados = 0, quant_erros = 0;
+    public TelaDoJogo delegate;
+    public String[] retornoCategoria;
+    public Score score;
+    public String nomeJogador = "", pontos;
+    public SQLiteDatabase db;
 
-    private CGPoint primeiraPosicao, segundaPosicao;
-    private int selectedId , opCategoria, count = 0, tag1, tag2, x, y, ultimoBotaoClicado = -1, quantBotoesClicados = 0, quant_erros = 0;
-    private TelaDoJogo delegate;
-    private String[] retornoCategoria;
-    private Score score;
-    private Jogador jogador;
 
 
     public static MenuButtonsTelaJogo questionButtons() {
@@ -52,7 +60,8 @@ public class MenuButtonsTelaJogo extends CCLayer {
 
     public MenuButtonsTelaJogo() {
         this.setIsTouchEnabled(true);
-        criaDialog();
+        criaDialogConfiguracao();
+
     }
 
     public void setDelegate(TelaDoJogo delegate) {
@@ -61,9 +70,9 @@ public class MenuButtonsTelaJogo extends CCLayer {
 
     public void setimagens() {
         for (int i = 0; i < imagens.length; i++) {
-            this.imagens[i] = CCSprite.sprite(Esconde.ESCONDE);
+            this.imagens[i] = CCSprite.sprite("perg.png");
         }
-        Collections.shuffle(Arrays.asList(retornoCategoria));
+       // Collections.shuffle(Arrays.asList(retornoCategoria));
     }
 
     public void setPosicoes() {
@@ -119,7 +128,7 @@ public class MenuButtonsTelaJogo extends CCLayer {
 
     private void embaralhaExibeTodos() { //Embaralha as imagens com o método Suffle
 
-        Collections.shuffle(Arrays.asList(imagens));
+//        Collections.shuffle(Arrays.asList(imagens));
         for (int i = 0; i < imagens.length; i++) {
             this.imagens[i] = CCSprite.sprite(retornoCategoria[i]);
         }
@@ -129,7 +138,7 @@ public class MenuButtonsTelaJogo extends CCLayer {
     //esconde a figura e seta a pergunta
     private void esconde(int i, CGPoint pos, int tag) {
         this.imagens[i].setVisible(false);
-        this.imagens[i] = CCSprite.sprite(Esconde.ESCONDE);
+        this.imagens[i] = CCSprite.sprite("perg.png");
         this.imagens[i].setTag(tag);
         this.imagens[i].setPosition(pos);
         addChild(imagens[i]);
@@ -166,7 +175,24 @@ public class MenuButtonsTelaJogo extends CCLayer {
     private void criaToast(final String is) {
         CCDirector.sharedDirector().getActivity().runOnUiThread(new Runnable() {
             public void run() {
-                Toast.makeText(CCDirector.sharedDirector().getActivity(), is, Toast.LENGTH_SHORT).show();
+        LayoutInflater inflater = (LayoutInflater)
+                CCDirector.sharedDirector().getActivity().getSystemService
+                        (CCDirector.sharedDirector().getActivity().LAYOUT_INFLATER_SERVICE);
+        View layout = inflater.inflate(R.layout.toast_layout, null);
+        TextView tv = (TextView) layout.findViewById(R.id.tvTexto);
+        tv.setText(is);
+        LinearLayout llRoot = (LinearLayout) layout.findViewById(R.id.llRoot);
+        Drawable img;
+        int bg;
+        img = CCDirector.sharedDirector().getActivity().getResources().getDrawable(R.drawable.toast_background_yellow);
+        bg  = R.drawable.toast_background_yellow;
+        tv.setCompoundDrawablesWithIntrinsicBounds(img, null, null, null);
+        llRoot.setBackgroundResource(bg);
+        Toast toast = new Toast(CCDirector.sharedDirector().getActivity());
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
             }
         });
     }
@@ -175,10 +201,6 @@ public class MenuButtonsTelaJogo extends CCLayer {
 
         //inicio da verificação
         for (int i = 0; i < imagens.length; i++) {
-
-      
-
-
             //indentifica qual foi o botao clicado do meu vetor
             if (sender.equals(imagens[i])) {
                 //primeira jogada
@@ -194,12 +216,12 @@ public class MenuButtonsTelaJogo extends CCLayer {
                     this.tag2 = imagens[i].getTag();
                     this.segundaPosicao = imagens[i].getPosition();
                     mostra(i, segundaPosicao, tag2);
-                    criaToast(" Parabéns!");
+                    criaToast(retornoCategoria[i].toString().substring(0, retornoCategoria[i].length()-4));
                     ultimoBotaoClicado = -1;
                     delegate.score.acrecenta();
 
-
                     if (quantBotoesClicados == 16) {
+                        insereJogador();
                         this.delegate.iniciarFinaldoJogo();
                         break;
                     }
@@ -231,42 +253,58 @@ public class MenuButtonsTelaJogo extends CCLayer {
         //antigo = null;
     }
 
-    private void criaDialog() {
+    private void insereJogador() {
+        if(nomeJogador.equals("")){
+            nomeJogador = "Player";
+        }
+        JogadorDao dao = new JogadorDao(CCDirector.sharedDirector().getActivity());
+        Jogador jogador = new Jogador();
+        jogador.setNome(nomeJogador);
+        jogador.setPontos(delegate.score.getScore());
+        dao.salvar(jogador);
+    }
 
+    private void criaDialogConfiguracao() {
         CCDirector.sharedDirector().getActivity().runOnUiThread(new Runnable() {
             public void run() {
-
             final Dialog dialog = new Dialog(CCDirector.sharedDirector().getActivity());
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialog.setContentView(R.layout.dialog_opcoes);
             final EditText edNome = (EditText) dialog.findViewById(R.id.editTextJogador);
             final RadioGroup radioGroupCategoria = (RadioGroup) dialog.findViewById(R.id.radioGroupCategoria);
+            final RadioGroup radioGroupDificuldade = (RadioGroup) dialog.findViewById(R.id.rbdificuldade);
             final RadioButton radioAnimais = (RadioButton) dialog.findViewById(R.id.radioButton_Animais);
             final RadioButton radioFrutas = (RadioButton) dialog.findViewById(R.id.radioButton_Frutas);
+            final RadioButton radioEasy = (RadioButton) dialog.findViewById(R.id.radioButtonFacil);
+            final RadioButton radioHard = (RadioButton) dialog.findViewById(R.id.radioButtonDificil);
             final Button btnOk = (Button) dialog.findViewById(R.id.button_Ok);
             radioFrutas.setChecked(true);
 
-
                 btnOk.setOnClickListener(new View.OnClickListener() {
-                @Override
+                    @Override
                 public void onClick(View view) {
-                    //delegate.jogador.nomeJogador(edNome.getText().toString());
-
+                    nomeJogador = edNome.getText().toString();
                     if (radioGroupCategoria.getCheckedRadioButtonId()==radioAnimais.getId()){
                         retornoCategoria = Assets.ImagensAnimais;
-
-                    }else if (radioGroupCategoria.getCheckedRadioButtonId()==radioFrutas.getId()){
+                        setimagens();
+                        setPosicoes();
+                        dialog.dismiss();
+                    }if (radioGroupCategoria.getCheckedRadioButtonId()==radioFrutas.getId()){
                         retornoCategoria = Assets.ImagensFrutas;
-                    }
-                    setimagens();
-                    setPosicoes();
+                        setimagens();
+                        setPosicoes();
+                        dialog.dismiss();
+                    }if (radioGroupDificuldade.getCheckedRadioButtonId()==radioEasy.getId()){
 
-                    dialog.dismiss();
-                }
+                    }
+                    if (radioGroupDificuldade.getCheckedRadioButtonId()==radioHard.getId()){
+
+                    }
+
+                    }
             });
             dialog.show();
             }
         });
     }
-
 }

@@ -1,36 +1,30 @@
 package br.com.jogodamemoria.jogo.controle;
 
-
 import android.app.Dialog;
+import android.content.Intent;
 import android.view.View;
 import android.view.Window;
 
-import br.com.jogodamemoria.R;
-import br.com.jogodamemoria.configuracoes.Assets;
-import br.com.jogodamemoria.jogo.interfaces.ButtonDelegate;
-import br.com.jogodamemoria.jogo.scenes.TelaDoJogo;
-import br.com.jogodamemoria.jogo.scenes.TelaPreparaJogo;
-
 import org.cocos2d.layers.CCLayer;
+import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.transitions.CCFadeTransition;
 import org.cocos2d.types.CGPoint;
-import org.cocos2d.nodes.CCDirector;
+
+import br.com.jogodamemoria.JogadorActivity;
+import br.com.jogodamemoria.R;
+import br.com.jogodamemoria.configuracoes.Assets;
+import br.com.jogodamemoria.jogo.cenas.TelaDoJogo;
+import br.com.jogodamemoria.jogo.interfaces.ButtonDelegate;
 
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.resolucaoDaTela;
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenHeight;
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
 
-/**
- * Created by ricardo on 23/09/13.
- */
-
-
-public class MenuButtonsTelaTitulo extends CCLayer implements ButtonDelegate {
+public class MenuButtonsTelaTitulo extends CCLayer  implements ButtonDelegate {
 
     private Button playButton;
     private Button highScoredButton;
     private Button opcoesButton;
-
 
     @Override
     public void buttonClicked(Button sender) {
@@ -43,31 +37,13 @@ public class MenuButtonsTelaTitulo extends CCLayer implements ButtonDelegate {
             );
         }
         if (sender.equals(this.highScoredButton)) {
-            System.out.println("Clicou em: Highscore");
+            Intent it = new Intent(CCDirector.sharedDirector().getActivity(), JogadorActivity.class);
+            CCDirector.sharedDirector().getActivity().startActivity(it);
+
         }
         if (sender.equals(this.opcoesButton)){
-            CCDirector.sharedDirector().getActivity().runOnUiThread(new Runnable() {
-                public void run() {
-
-                    final Dialog dialog = new Dialog(CCDirector.sharedDirector().getActivity());
-                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                    dialog.setContentView(R.layout.dialog_help);
-
-                    final android.widget.Button btnOk = (android.widget.Button) dialog.findViewById(R.id.buttonHelpOk);
-
-
-                    btnOk.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            dialog.dismiss();
-                        }
-                    });
-                    dialog.show();
-                }
-            });
+            criaDialogOpcoes();
         }
-
-
     }
 
     public MenuButtonsTelaTitulo() {
@@ -92,9 +68,6 @@ public class MenuButtonsTelaTitulo extends CCLayer implements ButtonDelegate {
 
     }
 
-
-
-    // Posi����o dos Bot��es
     public void setButtonspPosition(){
 
 
@@ -110,5 +83,29 @@ public class MenuButtonsTelaTitulo extends CCLayer implements ButtonDelegate {
 
     }
 
+    private void criaDialogOpcoes() {
+
+        CCDirector.sharedDirector().getActivity().runOnUiThread(new Runnable() {
+            public void run() {
+
+                final Dialog dialog = new Dialog(CCDirector.sharedDirector().getActivity());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.dialog_help);
+
+                final android.widget.Button btnOk = (android.widget.Button) dialog.findViewById(R.id.buttonHelpOk);
+
+
+                btnOk.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+            }
+        });
+
+
+    }
 
 }

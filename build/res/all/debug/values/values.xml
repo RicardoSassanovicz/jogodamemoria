@@ -6,7 +6,9 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- From: file:/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/res/values/ids.xml -->
     <item name="RadioTipoCategoria" type="id">radioCategoria</item>
+    <item name="listaJogadores" type="id">listaJogadores</item>
     <item name="radioGroupCategoria" type="id">CategoriaRadioGroup</item>
+    <item name="rbdificuldade" type="id">radiogroupDificuldade</item>
     <!-- From: file:/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/res/values/strings.xml -->
     <string name="Categorias">categorias</string>
     <string name="action_settings">Settings</string>
@@ -28,6 +30,18 @@
 
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <!-- From: file:/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/res/values/theme.xml -->
+    <style name="MapBackground" parent="android:Theme">
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:layout_marginTop">53dp</item>
+        <item name="android:layout_marginBottom">53dp</item>
+        <item name="android:layout_height">350dp</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
     </style>
 
 </resources>

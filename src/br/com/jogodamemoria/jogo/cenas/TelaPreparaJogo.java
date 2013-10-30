@@ -1,28 +1,15 @@
-package br.com.jogodamemoria.jogo.scenes;
+package br.com.jogodamemoria.jogo.cenas;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
-import android.widget.Toast;
-
-import br.com.jogodamemoria.R;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
-import org.cocos2d.nodes.CCDirector;
-import org.cocos2d.transitions.CCFadeTransition;
 import org.cocos2d.types.CGPoint;
 
 import br.com.jogodamemoria.configuracoes.Assets;
-import br.com.jogodamemoria.jogo.screens.ScreenBackground;
+import br.com.jogodamemoria.jogo.telas.ScreenBackground;
 
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.resolucaoDaTela;
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenHeight;
