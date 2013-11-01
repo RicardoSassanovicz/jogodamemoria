@@ -7,6 +7,8 @@ package br.com.jogodamemoria.configuracoes;
 
 public class Assets {
 
+    public static String ESCONDE = "perg.png";
+
     public static String BACKGROUND = "background.jpg";
     public static String LOGO = "logo.png";
     public static String PLAY = "play.png";
@@ -16,14 +18,14 @@ public class Assets {
     public static String JOGARNOVAMENTE = "jogarnovamente.png";
 
 
-    public static String CAVALO = "horse.png";
-    public static String COBRA = "snake.png";
-    public static String TUCANO = "tuqui.png";
-    public static String ZEBRA = "zebra.png";
-    public static String DOG = "bulldog.png";
-    public static String PASSARO = "bird.png";
-    public static String SAPO = "frog.png";
-    public static String PEIXE = "fish.png";
+    public static String CAVALO = "Horse.png";
+    public static String COBRA = "Snake.png";
+    public static String TUCANO = "Toucan.png";
+    public static String ZEBRA = "Zebra.png";
+    public static String DOG = "Dog.png";
+    public static String PASSARO = "Bird.png";
+    public static String SAPO = "Frog.png";
+    public static String PEIXE = "Fish.png";
 //    public static String ELEFANTE = "elephant.png";
 //    public static String PATO = "duck.png";
 

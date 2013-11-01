@@ -1,4 +1,4 @@
-package br.com.jogodamemoria.jogo.Objetos;
+package br.com.jogodamemoria.jogo.objetos;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.opengl.CCBitmapFontAtlas;
@@ -14,6 +14,8 @@ public class Score extends CCLayer {
 
     public int score;
 
+    String pontos;
+
     private CCBitmapFontAtlas text;
 
     public Score(){
@@ -22,14 +24,8 @@ public class Score extends CCLayer {
         this.text = CCBitmapFontAtlas.bitmapFontAtlas(
                 String.valueOf(this.score),
                 "UniSansSemiBold_Numbers_240.fnt");
-        this.text.setScale((float) 240 / 240);
-        this.setPosition(screenWidth()-60, screenHeight()-60);
-        if (score < 0){
-            text.setColor(ccColor3B.ccRED);
-        }else{
-            text.setColor(ccColor3B.ccWHITE);
-        }
-
+        this.text.setScale(1.5f);
+        this.setPosition(screenWidth()-80, screenHeight()-80);
         this.addChild(this.text);
     }
 
@@ -44,8 +40,6 @@ public class Score extends CCLayer {
             text.setColor(ccColor3B.ccWHITE);
         }
 
-
-
     }
     public void tira() {
         score-=3;
@@ -57,5 +51,9 @@ public class Score extends CCLayer {
             text.setColor(ccColor3B.ccWHITE);
         }
 
+    }
+
+    public String getScore() {
+        return pontos = String.valueOf(this.score);
     }
 }

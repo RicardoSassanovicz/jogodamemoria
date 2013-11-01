@@ -20,7 +20,8 @@ public final class R {
     public static final class drawable {
         public static final int background=0x7f020000;
         public static final int logo=0x7f020001;
-        public static final int toast_background_yellow=0x7f020002;
+        public static final int toast_background_green=0x7f020002;
+        public static final int toast_background_red=0x7f020003;
     }
     public static final class id {
         /**  From: file:/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/res/values/ids.xml 

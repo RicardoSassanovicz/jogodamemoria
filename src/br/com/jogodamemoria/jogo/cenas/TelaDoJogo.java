@@ -1,14 +1,15 @@
 package br.com.jogodamemoria.jogo.cenas;
 
 import org.cocos2d.layers.CCLayer;
-import org.cocos2d.nodes.CCDirector;
-import org.cocos2d.types.CGPoint;
 import org.cocos2d.layers.CCScene;
+import org.cocos2d.nodes.CCDirector;
+import org.cocos2d.transitions.CCRotoZoomTransition;
+import org.cocos2d.types.CGPoint;
 
 import br.com.jogodamemoria.configuracoes.Assets;
-import br.com.jogodamemoria.jogo.objetos.Score;
 import br.com.jogodamemoria.jogo.controle.GameButtons;
 import br.com.jogodamemoria.jogo.controle.MenuButtonsTelaJogo;
+import br.com.jogodamemoria.jogo.objetos.Score;
 import br.com.jogodamemoria.jogo.telas.ScreenBackground;
 
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.resolucaoDaTela;
@@ -25,6 +26,7 @@ public class TelaDoJogo extends CCLayer{
     private ScreenBackground background;
     private CCLayer scoreLayer, jogadorLayer;
     public Score score;
+    public static CCDirector DIRETOR;
 
     //ADICIONA O BACKGROUND A TELA DO JOGO
     private TelaDoJogo() {
@@ -45,10 +47,6 @@ public class TelaDoJogo extends CCLayer{
         //novo camada para a pontuação
         this.scoreLayer = CCLayer.node();
         this.addChild(this.scoreLayer);
-
-//        this.jogadorLayer = CCLayer.node();
-//        this.addChild(this.jogadorLayer);
-
         //invoca nossos objetos
         this.addGameObjects();
     }
@@ -63,16 +61,10 @@ public class TelaDoJogo extends CCLayer{
     private void addGameObjects() {
         this.score = new Score();
         this.scoreLayer.addChild(this.score);
-
-//        this.jogador = new Jogador();
-//        this.jogadorLayer.addChild(this.jogador);
     }
 
     public void iniciarFinaldoJogo() {
-        CCDirector.sharedDirector()
-                .replaceScene(new FinalDoJogo().scene());
+       DIRETOR.sharedDirector()
+                .replaceScene(CCRotoZoomTransition.transition(1.0f, new FinalDoJogo().scene()));
     }
-
-
-
 }

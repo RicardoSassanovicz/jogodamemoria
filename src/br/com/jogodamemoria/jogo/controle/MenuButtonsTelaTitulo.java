@@ -7,7 +7,7 @@ import android.view.Window;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.nodes.CCDirector;
-import org.cocos2d.transitions.CCFadeTransition;
+import org.cocos2d.transitions.CCRotoZoomTransition;
 import org.cocos2d.types.CGPoint;
 
 import br.com.jogodamemoria.JogadorActivity;
@@ -33,13 +33,13 @@ public class MenuButtonsTelaTitulo extends CCLayer  implements ButtonDelegate {
         if (sender.equals(this.playButton)) {
             //Diteror chama pra mim a tela do jogo e cria ela pra mim!
             CCDirector.sharedDirector().replaceScene(
-                    CCFadeTransition.transition(1.0f, TelaDoJogo.createGame())
+                    CCRotoZoomTransition.transition(1.0f, TelaDoJogo.createGame())
             );
         }
         if (sender.equals(this.highScoredButton)) {
+
             Intent it = new Intent(CCDirector.sharedDirector().getActivity(), JogadorActivity.class);
             CCDirector.sharedDirector().getActivity().startActivity(it);
-
         }
         if (sender.equals(this.opcoesButton)){
             criaDialogOpcoes();
@@ -70,7 +70,6 @@ public class MenuButtonsTelaTitulo extends CCLayer  implements ButtonDelegate {
 
     public void setButtonspPosition(){
 
-
         playButton.setPosition(resolucaoDaTela
                 (CGPoint.ccp(screenWidth() - 200, screenHeight() - 700))
         );
@@ -80,7 +79,6 @@ public class MenuButtonsTelaTitulo extends CCLayer  implements ButtonDelegate {
         opcoesButton.setPosition(resolucaoDaTela
                 (CGPoint.ccp(screenWidth() - 200, screenHeight() - 1000))
         );
-
     }
 
     private void criaDialogOpcoes() {
@@ -104,7 +102,6 @@ public class MenuButtonsTelaTitulo extends CCLayer  implements ButtonDelegate {
                 dialog.show();
             }
         });
-
 
     }
 
