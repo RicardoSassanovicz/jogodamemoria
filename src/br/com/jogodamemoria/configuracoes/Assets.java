@@ -26,11 +26,13 @@ public class Assets {
     public static String PASSARO = "Bird.png";
     public static String SAPO = "Frog.png";
     public static String PEIXE = "Fish.png";
-//    public static String ELEFANTE = "elephant.png";
-//    public static String PATO = "duck.png";
+    public static String ELEFANTE = "Elephant.png";
+    public static String PATO = "Duck.png";
+    public static String MONEKY = "Monkey.png";
+    public static String TARTARUGA = "Turtle.png";
 
-    public static String ImagensAnimais[] = {CAVALO,COBRA,TUCANO,ZEBRA,DOG,PASSARO,SAPO,PEIXE,CAVALO,COBRA,TUCANO,ZEBRA,DOG,PASSARO,SAPO,PEIXE};
-
+    public static String ImagensAnimaisEasy[] = {CAVALO,COBRA,TUCANO,ZEBRA,DOG,PASSARO,SAPO,PEIXE,CAVALO,COBRA,TUCANO,ZEBRA,DOG,PASSARO,SAPO,PEIXE};
+    public static String ImagensAnimaisHard[] = {CAVALO,COBRA,TUCANO,ZEBRA,DOG,PASSARO,SAPO,PEIXE,ELEFANTE,PATO,TARTARUGA,MONEKY,CAVALO,COBRA,TUCANO,ZEBRA,DOG,PASSARO,SAPO,PEIXE,ELEFANTE,PATO,TARTARUGA,MONEKY};
     public static String MACA = "Apple.png";
     public static String LIMAO = "Lemon.png";
     public static String MANGA = "Mango.png";
@@ -39,11 +41,13 @@ public class Assets {
     public static String BANANA = "Banana.png";
     public static String KIWI = "Kiwi.png";
     public static String CEREJA = "Cherry.png";
-//    public static String PERA = "Pear.png";
-//    public static String TOMATE = "Tomato.png";
+    public static String PERA = "Pear.png";
+    public static String TOMATE = "Tomato.png";
+    public static String ABACAXI = "Pineapple.png";
+    public static String COCO = "Coconut.png";
 
-    public static String ImagensFrutas[] = {MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA,MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA};
-
+    public static String ImagensFrutasEasy[] = {MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA,MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA};
+    public static String ImagensFrutasHard[] = {MACA,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA,PERA,TOMATE,MACA,ABACAXI,COCO,LIMAO,MANGA,LARANJA,MORANGO,BANANA,KIWI,CEREJA,PERA,TOMATE,ABACAXI,COCO};
 
 
 }

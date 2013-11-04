@@ -1,4 +1,4 @@
-package br.com.jogodamemoria.jogo.controle;
+package br.com.jogodamemoria.jogo.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

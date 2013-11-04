@@ -7,13 +7,12 @@ import android.view.Window;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.nodes.CCDirector;
-import org.cocos2d.transitions.CCRotoZoomTransition;
 import org.cocos2d.types.CGPoint;
 
 import br.com.jogodamemoria.JogadorActivity;
+import br.com.jogodamemoria.PreparaJogoActivity;
 import br.com.jogodamemoria.R;
 import br.com.jogodamemoria.configuracoes.Assets;
-import br.com.jogodamemoria.jogo.cenas.TelaDoJogo;
 import br.com.jogodamemoria.jogo.interfaces.ButtonDelegate;
 
 import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.resolucaoDaTela;
@@ -32,9 +31,12 @@ public class MenuButtonsTelaTitulo extends CCLayer  implements ButtonDelegate {
         //Quando Clicar no Botao Play, ira chamar a tela do jogo!
         if (sender.equals(this.playButton)) {
             //Diteror chama pra mim a tela do jogo e cria ela pra mim!
-            CCDirector.sharedDirector().replaceScene(
-                    CCRotoZoomTransition.transition(1.0f, TelaDoJogo.createGame())
-            );
+            Intent it = new Intent(CCDirector.sharedDirector().getActivity(), PreparaJogoActivity.class);
+            CCDirector.sharedDirector().getActivity().startActivity(it);
+//
+//            CCDirector.sharedDirector().replaceScene(
+//                    CCRotoZoomTransition.transition(1.0f, TelaPreparaJogo.createGame())
+//            );
         }
         if (sender.equals(this.highScoredButton)) {
 
@@ -49,7 +51,7 @@ public class MenuButtonsTelaTitulo extends CCLayer  implements ButtonDelegate {
     public MenuButtonsTelaTitulo() {
         this.setIsTouchEnabled(true);
 
-        //seta os botoes para os devidas imagens
+        //seta os botoes para os devidas iimagens
         this.playButton = new Button(Assets.PLAY);
         this.highScoredButton = new Button(Assets.HIGHSCORE);
         this.opcoesButton = new Button(Assets.OPCOES);

@@ -1,20 +1,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="300dp"
+    android:layout_height="fill_parent"
     tools:context=".ListContatoActivity"
     android:clickable="false">
 
     <ListView
-        android:id="@+id/jogador_lista"
+        android:id="@+id/final_lista"
         android:layout_width="fill_parent"
-        android:layout_height="300dp"
+        android:layout_height="fill_parent"
         android:clickable="true"
         android:scrollingCache="false"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="false">
-
+        android:layout_alignParentEnd="false"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true">
     </ListView>
 
 </RelativeLayout>

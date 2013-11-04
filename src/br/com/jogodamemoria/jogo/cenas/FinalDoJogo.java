@@ -1,11 +1,15 @@
 package br.com.jogodamemoria.jogo.cenas;
 
+import android.content.Intent;
+
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
 import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.nodes.CCSprite;
+import org.cocos2d.transitions.CCRotoZoomTransition;
 import org.cocos2d.types.CGPoint;
 
+import br.com.jogodamemoria.ItemsActivity;
 import br.com.jogodamemoria.configuracoes.Assets;
 import br.com.jogodamemoria.jogo.controle.Button;
 import br.com.jogodamemoria.jogo.interfaces.ButtonDelegate;
@@ -21,7 +25,7 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
 public class FinalDoJogo extends CCLayer implements ButtonDelegate {
 
     private ScreenBackground background;
-    private Button finalButton;
+    private Button finalButton, verButton;
 
     public CCScene scene(){
         CCScene scene = CCScene.node();
@@ -45,14 +49,25 @@ public class FinalDoJogo extends CCLayer implements ButtonDelegate {
         this.finalButton.setDelegate(this);
         this.addChild(this.finalButton);
 
-    }
+        this.setIsTouchEnabled(true);
+        this.verButton = new Button(Assets.JOGARNOVAMENTE);
+        this.verButton.setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() /2 ,screenHeight() - 1000))) ;
+        this.verButton.setDelegate(this);
+        this.addChild(this.verButton);
 
+    }
     @Override
     public void buttonClicked(Button sender) {
         if (sender.equals(this.finalButton)) {
 //            SoundEngine.sharedEngine().pauseSound();
             CCDirector.sharedDirector()
-                    .replaceScene(new TelaDeTitulo().cena());
+                    .replaceScene(CCRotoZoomTransition.transition(1.0f, new TelaDeTitulo().cena()));
+        }
+        if(sender.equals(this.verButton)){
+            Intent it = new Intent(CCDirector.sharedDirector().getActivity(), ItemsActivity.class);
+            CCDirector.sharedDirector().getActivity().startActivity(it);
         }
     }
+
+
 }

@@ -27,6 +27,14 @@
             android:name="br.com.jogodamemoria.JogadorActivity"
             android:theme="@style/MapBackground">
         </activity>
+        <activity
+            android:name="br.com.jogodamemoria.PreparaJogoActivity"
+            android:theme="@style/configuracoes">
+        </activity>
+        <activity
+            android:name="br.com.jogodamemoria.ItemsActivity"
+            android:theme="@style/configuracoes">
+        </activity>
     </application>
 
 </manifest>

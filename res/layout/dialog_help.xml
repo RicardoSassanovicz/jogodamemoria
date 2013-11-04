@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="8dp"
-    android:background="#252525"
+    android:background="#373737"
     >
 
     <TextView android:id="@+id/text"
@@ -20,7 +20,7 @@
         android:text="SOBRE"
         android:id="@+id/textView4"
         android:layout_gravity="left|center_vertical"
-        android:textColor="#8e0500" />
+        android:textColor="#a12a2b" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
         android:layout_marginTop="20dp"
         android:phoneNumber="false"
         android:singleLine="false"
-        android:textColor="#9e9e9e"
+        android:textColor="#ffffff"
         android:editable="false"
         android:focusable="false"
         android:layout_marginBottom="2dp" />
@@ -43,7 +43,7 @@
         android:text="Faça bom uso deste jogo! "
         android:id="@+id/textView2"
         android:layout_gravity="left|center_vertical"
-        android:textColor="#c5c5c5"
+        android:textColor="#ffffff"
         android:layout_marginTop="12dp" />
 
     <CheckBox
@@ -53,7 +53,7 @@
         android:id="@+id/checkBoxAtivaDesativaSom"
         android:layout_gravity="left|center_vertical"
         android:checked="false"
-        android:textColor="#bebbbc"
+        android:textColor="#ffffff"
         android:layout_marginTop="15dp" />
 
     <Button
@@ -62,7 +62,9 @@
         android:text="OK"
         android:id="@+id/buttonHelpOk"
         android:layout_gravity="center"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="12dp"
+        android:textColor="#ffffff"
+        android:shadowColor="#000000" />
 
 
 </LinearLayout>

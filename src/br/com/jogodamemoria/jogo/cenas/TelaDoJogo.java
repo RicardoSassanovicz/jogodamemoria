@@ -6,9 +6,11 @@ import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.transitions.CCRotoZoomTransition;
 import org.cocos2d.types.CGPoint;
 
+import br.com.jogodamemoria.PreparaJogoActivity;
 import br.com.jogodamemoria.configuracoes.Assets;
-import br.com.jogodamemoria.jogo.controle.GameButtons;
-import br.com.jogodamemoria.jogo.controle.MenuButtonsTelaJogo;
+import br.com.jogodamemoria.jogo.controle.MenuButtonsTelaJogoDificil;
+import br.com.jogodamemoria.jogo.controle.MenuButtonsTelaJogoFacil;
+import br.com.jogodamemoria.jogo.objetos.Conf;
 import br.com.jogodamemoria.jogo.objetos.Score;
 import br.com.jogodamemoria.jogo.telas.ScreenBackground;
 
@@ -23,26 +25,23 @@ import static br.com.jogodamemoria.configuracoes.ConfigDispositivo.screenWidth;
 //TELA DO JOGO
 public class TelaDoJogo extends CCLayer{
 
-    private ScreenBackground background;
-    private CCLayer scoreLayer, jogadorLayer;
+    public ScreenBackground background;
+    public CCLayer scoreLayer, jogadorLayer;
     public Score score;
     public static CCDirector DIRETOR;
 
+    PreparaJogoActivity delegate = new PreparaJogoActivity();
+
     //ADICIONA O BACKGROUND A TELA DO JOGO
-    private TelaDoJogo() {
+    public TelaDoJogo() {
+
 
         this.background = new ScreenBackground(Assets.BACKGROUND);
         this.background.setPosition(resolucaoDaTela(
                         CGPoint.ccp(screenWidth() / 2.0f, screenHeight() / 2.0f)));
         this.addChild(this.background);
 
-        GameButtons gameButtonsLayer = GameButtons.gameButtons();
-        gameButtonsLayer.setDelegate(this);
-        this.addChild(gameButtonsLayer);
-
-        MenuButtonsTelaJogo menuButtonsTelaJogoLayer = MenuButtonsTelaJogo.questionButtons();
-        menuButtonsTelaJogoLayer.setDelegate(this);
-        this.addChild(menuButtonsTelaJogoLayer);
+        verificaDificuldade();
 
         //novo camada para a pontuação
         this.scoreLayer = CCLayer.node();
@@ -67,4 +66,21 @@ public class TelaDoJogo extends CCLayer{
        DIRETOR.sharedDirector()
                 .replaceScene(CCRotoZoomTransition.transition(1.0f, new FinalDoJogo().scene()));
     }
+
+    public void verificaDificuldade(){
+
+        if(Conf.dificuldade == "dificil"){
+            System.out.println("Entrou Dificil");
+            MenuButtonsTelaJogoDificil menuButtonsTelaJogoDificilLayer = MenuButtonsTelaJogoDificil.questionButtons();
+            menuButtonsTelaJogoDificilLayer.setDelegate(this);
+            this.addChild(menuButtonsTelaJogoDificilLayer);
+
+        }else if(Conf.dificuldade == "facil"){
+            System.out.println("Entrou Facil");
+            MenuButtonsTelaJogoFacil menuButtonsTelaJogoFacilLayer = MenuButtonsTelaJogoFacil.questionButtons();
+            menuButtonsTelaJogoFacilLayer.setDelegate(this);
+            this.addChild(menuButtonsTelaJogoFacilLayer);
+        }
+    }
+
 }

@@ -6,7 +6,6 @@ public class Jogador {
     private String nome;
     private String pontos;
 
-
     public Jogador() {
         super();
         this.id = id;
@@ -37,4 +36,6 @@ public class Jogador {
     public void setPontos(String pontos) {
         this.pontos = pontos;
     }
+
+
 }

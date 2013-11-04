@@ -12,7 +12,7 @@ import org.cocos2d.nodes.CCDirector;
 
 import java.util.List;
 
-import br.com.jogodamemoria.jogo.controle.JogadorAdapter;
+import br.com.jogodamemoria.jogo.Adapter.JogadorAdapter;
 import br.com.jogodamemoria.jogo.objetos.Jogador;
 import br.com.jogodamemoria.jogo.objetos.JogadorDao;
 
@@ -30,15 +30,11 @@ public class JogadorActivity extends ListActivity {
         jogadores = dao.listar();
 		adapter = new JogadorAdapter(CCDirector.sharedDirector().getActivity(), R.layout.activity_jogador_item, jogadores);
 		setListAdapter(adapter);
-		
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-
-
-
 		atualizaLista();
 	}
 	private void atualizaLista() {
@@ -52,10 +48,8 @@ public class JogadorActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
+        l.clearAnimation();
         final Jogador j = jogadores.get(position);
-
-
-
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setMessage("Deseja excluir "+j.getNome().toString()+" ?");
         dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -66,7 +60,6 @@ public class JogadorActivity extends ListActivity {
                 atualizaLista();
             }
         });
-
         dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
