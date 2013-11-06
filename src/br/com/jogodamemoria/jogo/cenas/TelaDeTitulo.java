@@ -3,9 +3,12 @@ package br.com.jogodamemoria.jogo.cenas;
 
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.layers.CCScene;
+import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.nodes.CCSprite;
+import org.cocos2d.sound.SoundEngine;
 import org.cocos2d.types.CGPoint;
 
+import br.com.jogodamemoria.R;
 import br.com.jogodamemoria.configuracoes.Assets;
 import br.com.jogodamemoria.jogo.controle.MenuButtonsTelaTitulo;
 import br.com.jogodamemoria.jogo.telas.ScreenBackground;
@@ -48,6 +51,10 @@ public class TelaDeTitulo extends CCLayer {
         // Botoes =D
         MenuButtonsTelaTitulo menuLayer = new MenuButtonsTelaTitulo();
         this.addChild(menuLayer);
+
+        SoundEngine.sharedEngine().playSound(
+                CCDirector.sharedDirector().getActivity(),
+                R.raw.music, true);
 
 
     }

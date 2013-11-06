@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.jogodamemoria.configuracoes.Assets;
+import br.com.jogodamemoria.jogo.objetos.Conf;
 import br.com.jogodamemoria.jogo.objetos.Item;
 
 /**
@@ -26,13 +27,13 @@ public class ItemsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_list);
-        populateItemList();
+        verificaCategoriaEOpcao();
         populateListView();
     }
 
     private List<Item> items = new ArrayList<Item>();
-
-    private void populateItemList() {
+    //dificil frutas
+    private void populateItemListFrutasHard() {
         items.add(new Item(Assets.ABACAXI.toString(),R.drawable.pineapple,"Abacaxi"));
         items.add(new Item(Assets.BANANA.toString(),R.drawable.banana,"Banana"));
         items.add(new Item(Assets.CEREJA.toString(),R.drawable.cherry,"Cereja"));
@@ -44,7 +45,46 @@ public class ItemsActivity extends Activity {
         items.add(new Item(Assets.MANGA.toString(),R.drawable.mango,"Manga"));
         items.add(new Item(Assets.TOMATE.toString(),R.drawable.tomato,"Tomate"));
         items.add(new Item(Assets.MORANGO.toString(),R.drawable.strawberry,"Morango"));
+        items.add(new Item(Assets.PERA.toString(),R.drawable.pear,"Pera"));
     }
+    //facil frutas
+    private void populateItemListFrutasEasy() {
+        items.add(new Item(Assets.BANANA.toString(),R.drawable.banana,"Banana"));
+        items.add(new Item(Assets.CEREJA.toString(),R.drawable.cherry,"Cereja"));
+        items.add(new Item(Assets.KIWI.toString(),R.drawable.kiwi,"Kiwi"));
+        items.add(new Item(Assets.LARANJA.toString(),R.drawable.orange,"Laranja"));
+        items.add(new Item(Assets.LIMAO.toString(),R.drawable.lemon,"Limão"));
+        items.add(new Item(Assets.MACA.toString(),R.drawable.apple,"Maça"));
+        items.add(new Item(Assets.MANGA.toString(),R.drawable.mango,"Manga"));
+        items.add(new Item(Assets.MORANGO.toString(),R.drawable.strawberry,"Morango"));
+    }
+    //dificil animais
+    private void populateItemListAnimaisHard() {
+        items.add(new Item(Assets.CAVALO.toString(),R.drawable.horse,"Cavalo"));
+        items.add(new Item(Assets.COBRA.toString(),R.drawable.snake,"Cobra"));
+        items.add(new Item(Assets.TUCANO.toString(),R.drawable.toucan,"Tucano"));
+        items.add(new Item(Assets.ZEBRA.toString(),R.drawable.zebra,"Zebra"));
+        items.add(new Item(Assets.DOG.toString(),R.drawable.dog,"Cachorro"));
+        items.add(new Item(Assets.PASSARO.toString(),R.drawable.bird,"Passaro"));
+        items.add(new Item(Assets.SAPO.toString(),R.drawable.frog,"Sapo"));
+        items.add(new Item(Assets.PEIXE.toString(),R.drawable.fish,"Peixe"));
+        items.add(new Item(Assets.ELEFANTE.toString(),R.drawable.elephant,"Elefante"));
+        items.add(new Item(Assets.PATO.toString(),R.drawable.duck,"Pato"));
+        items.add(new Item(Assets.TARTARUGA.toString(),R.drawable.turtle,"Tartaruga"));
+        items.add(new Item(Assets.MONEKY.toString(),R.drawable.monkey,"Macaco"));
+    }
+    //facil animais
+    private void populateItemListAnimaisEasy() {
+        items.add(new Item(Assets.CAVALO.toString(),R.drawable.horse,"Cavalo"));
+        items.add(new Item(Assets.COBRA.toString(),R.drawable.snake,"Cobra"));
+        items.add(new Item(Assets.TUCANO.toString(),R.drawable.toucan,"Tucano"));
+        items.add(new Item(Assets.ZEBRA.toString(),R.drawable.zebra,"Zebra"));
+        items.add(new Item(Assets.DOG.toString(),R.drawable.dog,"Cachorro"));
+        items.add(new Item(Assets.PASSARO.toString(),R.drawable.bird,"Passaro"));
+        items.add(new Item(Assets.SAPO.toString(),R.drawable.frog,"Sapo"));
+        items.add(new Item(Assets.PEIXE.toString(),R.drawable.fish,"Peixe"));
+    }
+
 
     private void populateListView() {
         ArrayAdapter<Item> adapter = new MyListAdapter();
@@ -83,5 +123,18 @@ public class ItemsActivity extends Activity {
 
             return itemView;
         }
+    }
+    public void verificaCategoriaEOpcao(){
+        if(Conf.categoria.equals(Assets.ImagensFrutasEasy)){
+            populateItemListFrutasEasy();
+        }else if(Conf.categoria.equals(Assets.ImagensFrutasHard)){
+            populateItemListFrutasHard();
+        }else if(Conf.categoria.equals(Assets.ImagensAnimaisEasy)){
+            populateItemListAnimaisEasy();
+        }else if(Conf.categoria.equals(Assets.ImagensAnimaisHard)){
+            populateItemListAnimaisHard();
+        }
+
+
     }
 }

@@ -16,6 +16,7 @@ public class Assets {
     public static String OPCOES = "opcoes.png";
     public static String FINAL = "final.png";
     public static String JOGARNOVAMENTE = "jogarnovamente.png";
+    public static String DUVIDAS = "duvidas.png";
 
 
     public static String CAVALO = "Horse.png";

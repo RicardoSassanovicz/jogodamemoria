@@ -6,6 +6,7 @@ import org.cocos2d.events.CCTouchDispatcher;
 import org.cocos2d.layers.CCLayer;
 import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.nodes.CCSprite;
+import org.cocos2d.sound.SoundEngine;
 import org.cocos2d.types.CGPoint;
 import org.cocos2d.types.CGRect;
 
@@ -13,6 +14,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import br.com.jogodamemoria.R;
 import br.com.jogodamemoria.configuracoes.ToastManager;
 import br.com.jogodamemoria.jogo.cenas.TelaDoJogo;
 import br.com.jogodamemoria.jogo.objetos.Conf;
@@ -196,6 +198,10 @@ public class MenuButtonsTelaJogoDificil extends CCLayer {
                     ToastManager.SUCESS);
             executarTempo(3000);
             delegate.iniciarFinaldoJogo();
+            SoundEngine.sharedEngine().pauseSound();
+            SoundEngine.sharedEngine().playEffect(
+                    CCDirector.sharedDirector().getActivity(),
+                    R.raw.finalend);
         }
     }
 

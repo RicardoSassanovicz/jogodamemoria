@@ -50,8 +50,8 @@ public final class R {
         public static final int zebra=0x7f02001d;
     }
     public static final class id {
-        public static final int DescricaoDoItemBR=0x7f060005;
-        public static final int DescricaoDoItemUS=0x7f060006;
+        public static final int DescricaoDoItemBR=0x7f060006;
+        public static final int DescricaoDoItemUS=0x7f060005;
         /**  From: file:/Users/ricardo/Documents/WorspaceAndroid/jogodamemoria/res/values/ids.xml 
          */
         public static final int RadioTipoCategoria=0x7f060000;
@@ -62,7 +62,7 @@ public final class R {
         public static final int button_Ok=0x7f06001c;
         public static final int checkBoxAtivaDesativaSom=0x7f060014;
         public static final int editTextJogador=0x7f060017;
-        public static final int final_lista=0x7f060009;
+        public static final int final_lista=0x7f060007;
         public static final int icon_Categoria=0x7f060004;
         public static final int imageView=0x7f06000c;
         public static final int jogador_lista=0x7f06000d;
@@ -79,7 +79,7 @@ public final class R {
         public static final int rbdificuldade=0x7f060003;
         public static final int text=0x7f06000f;
         public static final int textView=0x7f060008;
-        public static final int textView2=0x7f060007;
+        public static final int textView2=0x7f060009;
         public static final int textView3=0x7f060016;
         public static final int textView4=0x7f060013;
         public static final int toast_layout_root=0x7f06000e;

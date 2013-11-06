@@ -33,7 +33,6 @@ public class FinalDoJogo extends CCLayer implements ButtonDelegate {
         return scene;
     }
     public FinalDoJogo() {
-
         this.background = new ScreenBackground(Assets.BACKGROUND);
         this.background.setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() / 2.0f, screenHeight() / 2.0f)));
         this.addChild(this.background);
@@ -50,7 +49,7 @@ public class FinalDoJogo extends CCLayer implements ButtonDelegate {
         this.addChild(this.finalButton);
 
         this.setIsTouchEnabled(true);
-        this.verButton = new Button(Assets.JOGARNOVAMENTE);
+        this.verButton = new Button(Assets.DUVIDAS);
         this.verButton.setPosition(resolucaoDaTela(CGPoint.ccp(screenWidth() /2 ,screenHeight() - 1000))) ;
         this.verButton.setDelegate(this);
         this.addChild(this.verButton);
@@ -59,7 +58,7 @@ public class FinalDoJogo extends CCLayer implements ButtonDelegate {
     @Override
     public void buttonClicked(Button sender) {
         if (sender.equals(this.finalButton)) {
-//            SoundEngine.sharedEngine().pauseSound();
+           // SoundEngine.sharedEngine().pauseSound();
             CCDirector.sharedDirector()
                     .replaceScene(CCRotoZoomTransition.transition(1.0f, new TelaDeTitulo().cena()));
         }

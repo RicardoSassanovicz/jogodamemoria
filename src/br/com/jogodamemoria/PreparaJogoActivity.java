@@ -11,6 +11,9 @@ import android.widget.RadioGroup;
 import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.transitions.CCRotoZoomTransition;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import br.com.jogodamemoria.configuracoes.Assets;
 import br.com.jogodamemoria.jogo.cenas.TelaDoJogo;
 import br.com.jogodamemoria.jogo.objetos.Conf;
@@ -83,7 +86,7 @@ public class PreparaJogoActivity extends Activity {
                     conf = new Conf(edNome.getText().toString(),"dificil",Assets.ImagensFrutasHard);
                     chamatelajogo();
                 }
-                //Collections.shuffle(Arrays.asList(RETORN));
+                Collections.shuffle(Arrays.asList(Conf.categoria));
             }
 
         });
